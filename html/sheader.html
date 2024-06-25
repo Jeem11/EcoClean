@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Links: CSS and Icons -->
+    <link rel="stylesheet" href="sheaders.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>EcoClean</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <p>EcoClean</p>
+            </div>
+
+            <!-- Menu -->
+            <input type="checkbox" name="" id="menu">
+            <label for="menu"><i class='bx bx-menu' id="menu-icon"></i></label>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="c_home.php">Home</a></li>
+                    <li><a href="about_us.php">About Us</a></li>
+                    <li><a href="contacts.php">Contacts</a></li>
+                </ul>
+            </nav>
+
+            <!-- Account Dropdown -->
+            <div class="right-links">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown('accountOptions')" class="btn">Account</button>
+                    <div id="accountOptions" class="dropdown-content">
+                        <a href="profile.php">Update Profile</a>
+                        <a href="logout.php">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+    <!--<script src="(to be inserted)script.js"></script>-->
+</body>
+</html>
