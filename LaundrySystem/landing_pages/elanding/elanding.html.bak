@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Landing Page</h1>
+    </header>
+
+    <main>
+        <h2>Customers Progress</h2>
+        <table id="customerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Customer records will be populated here -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Example customer data, in a real scenario this will come from the backend
+            const customers = [
+                {}, // Add as many empty objects as needed to represent customers
+                {},
+                {}
+            ];
+
+            const tableBody = document.querySelector("#customerTable tbody");
+
+            customers.forEach(() => {
+                const row = document.createElement("tr");
+
+                const nameCell = document.createElement("td");
+                nameCell.textContent = ""; // No name for customers
+                row.appendChild(nameCell);
+
+                const statusCell = document.createElement("td");
+                const dropdown = document.createElement("select");
+                const statuses = ["waiting", "under wash", "drying", "folding", "ready for pick-up"];
+                
+                statuses.forEach(status => {
+                    const option = document.createElement("option");
+                    option.value = status;
+                    option.textContent = status;
+                    dropdown.appendChild(option);
+                });
+                statusCell.appendChild(dropdown);
+                row.appendChild(statusCell);
+
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

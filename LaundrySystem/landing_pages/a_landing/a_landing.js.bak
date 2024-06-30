@@ -1,0 +1,25 @@
+$(document).ready(function() {
+    $('.dropdown-btn').click(function() {
+        $(this).next('.dropdown-content').toggle(); // Toggle visibility of dropdown content
+    });
+
+    // Create select element for status dropdowns
+    const statusDropdowns = document.querySelectorAll('.status-cell');
+
+    statusDropdowns.forEach(cell => {
+        const selectDropdown = document.createElement("select");
+        selectDropdown.classList.add('status-dropdown');
+
+        // Options for the dropdown
+        const options = ["Pending", "Accepted", "Rejected"];
+
+        options.forEach(option => {
+            const optionElement = document.createElement("option");
+            optionElement.textContent = option;
+            selectDropdown.appendChild(optionElement);
+        });
+
+        // Append select dropdown to the cell
+        cell.appendChild(selectDropdown);
+    });
+});

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="image.png" alt="Description of the image" class="image">
+        <div class="content">
+            <h1>Title of the Document</h1>
+            <p>Some text that was found in the document, extracted from the PNG image.</p>
+        </div>
+    </div>
+</body>
+</html>
