@@ -1,0 +1,415 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 25, 2024, 2:08:51 AM
+    Author     : Chesca-PC
+*/
+
+body{
+    background: 
+        url('WaterDrops.png') no-repeat center center, 
+        linear-gradient(to bottom, rgb(2,41,84), rgb(53,76,124), rgb(80,90,116), rgb(176,184,206), rgb(234,235,254));
+    background-attachment: fixed;
+    background-size: cover, cover;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.Box{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    width: 800px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: -10px;
+    width: 800px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 0.3);
+}
+
+.head p{
+    text-align: center;
+    font-size: 64px;
+    font-weight: 500;
+    font-family: Lato,serif;
+    font-stretch: ultra-condensed;
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+}
+
+.tag{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+.Rule {
+    display: flex;
+    align-items: center;
+}
+
+.Rule .Agree {
+    margin-right: 10px; 
+}
+
+
+
+
+
+/*Section 1: class="business_infoSect" id ="Section1" */
+.business_infoSect{
+    width: 800px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+    justify-content: left;
+    display: block;
+}
+
+.business_infoSect label{
+    margin: 15px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.business_infoSect input{
+    width: 250px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 0;
+    box-shadow: 10px 10px 8px #888888;
+    border-radius:10px;
+    position: relative;
+    outline-color: rgb(50,205,50);
+}
+
+.business_infoSect input.file-input {
+    width: auto; 
+    padding: 15px; 
+    box-shadow: none; 
+    border-radius: 0px;
+    outline: none;
+    margin-bottom: 20px; 
+}
+
+.business_infoSect .custom-file-input input[type="file"] {
+    display: none;
+}
+
+.business_infoSect .custom-file-input img {
+    cursor: pointer;
+    width: 150px; 
+    height: 150px; 
+    border: 1px solid gray;
+    outline: 2px solid transparent; 
+    transition: outline-color 0.3s ease; 
+}
+
+.business_infoSect .custom-file-input img:hover {
+    outline-color: rgb(50, 205, 50); 
+}
+
+.business_infoSect input.Add{
+    width: 90%;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 0;
+    box-shadow: 10px 10px 8px #888888;
+    border-radius:10px;
+    position: relative;
+    outline-color: rgb(50,205,50);
+}
+
+.business_infoSect select{
+    width: 200px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 0;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 8px #888888;
+    outline-color: rgb(50,205,50);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.business_infoSect .btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+
+.business_infoSect .btn .sign-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-family: Garamond;
+    color: grey;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    margin: 15px 0;
+    margin-top: 0px;
+    border: 1px solid gray;
+    border-radius:7px;
+    text-decoration: none;
+    outline: 2px solid transparent;
+    cursor: pointer;
+}
+
+.business_infoSect .btn .sign-btn:hover{
+    color: rgb(0,128,0);
+    outline-color: rgb(0,128,0);
+    outline-color: rgb(50,205,50);
+    outline-width: 1px;
+    outline-style: solid;
+}
+
+
+
+
+
+/*Section 2: class="Additional_infoSect" id="Section2" */
+.Additional_infoSect{
+    width: 800px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+    justify-content: left;
+    display: none;
+}
+
+.Additional_infoSect label{
+    margin: 15px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.Additional_infoSect label.CON{
+    width: 90%;
+    margin: 15px;
+    font-size: 15px;
+    color: black;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 0;
+    font-weight: normal;
+}
+
+.Additional_infoSect input{
+    width: 250px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 0;
+    box-shadow: 10px 10px 8px #888888;
+    border-radius:10px;
+    position: relative;
+    outline-color: rgb(50,205,50);
+}
+
+.Additional_infoSect input.file-input {
+    width: auto; 
+    padding: 15px; 
+    box-shadow: none; 
+    border-radius: 0px;
+    outline: none;
+    margin-bottom: 20px; 
+}
+
+.Additional_infoSect .custom-file-input input[type="file"] {
+    display: none;
+}
+
+.Additional_infoSect .custom-file-input img {
+    cursor: pointer;
+    width: 150px; 
+    height: 150px; 
+    border: 1px solid gray;
+    outline: 2px solid transparent; 
+    transition: outline-color 0.3s ease; 
+}
+
+.Additional_infoSect .custom-file-input img:hover {
+    outline-color: rgb(50, 205, 50); 
+}
+
+.Additional_infoSect input.Agree {
+    width: auto; 
+    padding: 15px; 
+    box-shadow: none; 
+    border-radius: 0px;
+    outline: none;
+    margin-bottom: 20px; 
+}
+
+.Additional_infoSect input.date {
+    width: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 0;
+    box-shadow: 10px 10px 8px #888888;
+    border-radius:10px;
+    position: relative;
+    outline-color: rgb(50,205,50);
+}
+
+.Additional_infoSect select{
+    width: 200px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 0;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 8px #888888;
+    outline-color: rgb(50,205,50);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.Additional_infoSect .btn2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0; 
+    gap: 65%; 
+}
+
+.Additional_infoSect .btn2 .sign-btn2{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-family: Garamond;
+    color: grey;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid gray;
+    border-radius: 7px;
+    text-decoration: none;
+    outline: 2px solid transparent;
+    cursor: pointer;
+}
+
+.Additional_infoSect .btn2 .sign-btn2:hover{
+    color: rgb(0,128,0);
+    outline-color: rgb(0,128,0);
+    outline-color: rgb(50,205,50);
+    outline-width: 1px;
+    outline-style: solid;
+}
+
+
+
+
+
+/*Section 3: class="Sub_info" id="Section3" */
+.Sub_info{
+    width: 800px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+    justify-content: left;
+    display: none;
+}
+
+.Sub_info .btn3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0; 
+    gap: 65%; 
+}
+
+.Sub_info .btn3 .sign-btn3{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-family: Garamond;
+    color: grey;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    margin: 0; 
+    border: 1px solid gray;
+    border-radius: 7px;
+    text-decoration: none;
+    outline: 2px solid transparent;
+    cursor: pointer;
+}
+
+.Sub_info .btn3 .sign-btn3:hover{
+    color: rgb(0,128,0);
+    outline-color: rgb(0,128,0);
+    outline-color: rgb(50,205,50);
+    outline-width: 1px;
+    outline-style: solid;
+}
+
+
+
+
+
+.invalid-input {
+    outline: 2px solid red !important;
+}
