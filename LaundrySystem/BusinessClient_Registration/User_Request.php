@@ -20,6 +20,10 @@ try {
     $size = $_FILES['Client_File']['size'];
     $data = file_get_contents($_FILES['Client_File']['tmp_name']);
 
+    if ($data === false) {
+        throw new Exception('Failed to read uploaded file.');
+    }
+
     $fileExtension = pathinfo($original_name, PATHINFO_EXTENSION);
 
     // User/Client Name
@@ -46,26 +50,35 @@ try {
 
     // Upload user pic first to get rquserpic_ID
     $stmtpic = $conn->prepare("INSERT INTO request_userpic (rquser_name, mime, size, data) VALUES (?, ?, ?, ?)");
-    $stmtpic->bind_param("sssb", $fileName, $mime, $size, $data);
-    
+    if (!$stmtpic) {
+        throw new Exception('Prepare failed for request_userpic: ' . $conn->error);
+    }
+
+    $null = NULL;
+    $stmtpic->bind_param("sssb", $fileName, $mime, $size, $null);
+    $stmtpic->send_long_data(3, $data);
+
     if (!$stmtpic->execute()) {
-        throw new Exception('Failed to insert into request_userpic: ' . $conn->error);
+        throw new Exception('Failed to insert into request_userpic: ' . $stmtpic->error);
     }
 
     $rquserpic_ID = $stmtpic->insert_id;
-
     $stmtpic->close();
 
     // Insert data into request_user
     $stmt = $conn->prepare("INSERT INTO request_user "
             . "(rquser_ID, rquser_name, rquser_contact, rquser_email, rquser_add, rquser_city, rquser_brgy, rq_username, rq_userpass, rq_date) "
             . "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
+    if (!$stmt) {
+        throw new Exception('Prepare failed for request_user: ' . $conn->error);
+    }
+
     $stmt->bind_param("issssssss", $rquserpic_ID, $ClientName, $C_contact, $C_email, $C_add, $C_city, $C_brgy, $C_username, $C_pass);
 
     if ($stmt->execute()) {
         sendResponse('success', 'Request Successfully Submitted!', $rquserpic_ID);
     } else {
-        throw new Exception('Execution failed: ' . $conn->error);
+        throw new Exception('Execution failed: ' . $stmt->error);
     }
 
     $stmt->close();
@@ -85,4 +98,3 @@ function sendResponse($status, $message, $UserID = null) {
     echo json_encode($response);
     exit;
 }
-?>

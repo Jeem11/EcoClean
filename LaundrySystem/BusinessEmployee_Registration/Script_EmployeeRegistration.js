@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 'Poblacion Itaas', 'San Isidro', 'Santo Niño', 'San Pedro', 'San Roque', 
                 'San Vicente']);
         }else if(Emp_Select.value === 'Antipolo'){
-            AddBrgy(['Bagon Nayon', 'Beverly Hills', 'Calawis', 'Cupang', 'Dalig', 
+            AddBrgy(['Bagong Nayon', 'Beverly Hills', 'Calawis', 'Cupang', 'Dalig', 
                 'Dela Paz', 'Inarawan', 'Mambugan', 'Mayamot', 'Muntingdilaw', 'San Isidro', 
                 'San Jose', 'San Juan', 'San Luis', 'San Roque', 'Santa Cruz']);
         }else if(Emp_Select.value === 'Baras'){
@@ -467,17 +467,59 @@ document.addEventListener('DOMContentLoaded', function(){
                 PIbigFileInput.value = ''; 
             }
         }
-        
+
         if(valid){
-            resetOutlineColor(Employee_pic, profileIcon, Employee_lname, Employee_fname,
-            Employee_mname, Employee_bday, E_contact, E_email, Emp_Add, Emp_Muni,
-            Emp_Brgy, Job_shop, SSS_No, SSS_File, PhilH_No, PhilH_File, PIbig_No, PIbig_File,
-            Agreement, Emp_Sign);
-            
-            Employee_info.style.display = 'none';
-            Account_info.style.display = 'block';
+            $.ajax({
+                type: 'POST',
+                url: 'EmployeeVerifier.php',
+                data:{
+                    E_lname: Employee_lname.value,
+                    E_fname: Employee_fname.value,
+                    E_mname: Employee_mname.value,
+                    E_Email: E_email.value
+                },
+                success: function (response){
+                    console.log('AJAX success. Response:'. response);
+                    if(response === "exists"){
+                        Employee_lname.classList.add('invalid-input');
+                        Employee_fname.classList.add('invalid-input');
+                        E_email.classList.add('invalid-input');
+
+                        if(Employee_mname.value !== ''){
+                            Employee_mname.classList.add('invalid-input');
+                        }else{
+                            Employee_mname.classList.remove('invalid-input');
+                        }
+
+                        alert('User or Email alread exists. Please check your information');
+                        valid = false;
+                    }else if(response === "not_exists"){
+                        Employee_lname.classList.remove('invalid-input');
+                        Employee_fname.classList.remove('invalid-input');
+                        E_email.classList.remove('invalid-input');
+
+                        if(Employee_mname.value !== ''){
+                            Employee_mname.classList.remove('invalid-input');
+                        }
+                    }
+
+                    if(valid){
+                        resetOutlineColor(Employee_pic, profileIcon, Employee_lname, Employee_fname,
+                        Employee_mname, Employee_bday, E_contact, E_email, Emp_Add, Emp_Muni,
+                        Emp_Brgy, Job_shop, SSS_No, SSS_File, PhilH_No, PhilH_File, PIbig_No, PIbig_File,
+                        Agreement, Emp_Sign);
+                        
+                        Employee_info.style.display = 'none';
+                        Account_info.style.display = 'block';
+                    }
+                },
+                error: function (){
+                    console.log('AJAX error');
+                    alert('Error connecting to ClientVerifier')
+                }
+            });
         }
-    });
+});
     
     back2.addEventListener('click', function(){
         event.preventDefault();

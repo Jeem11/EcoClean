@@ -8,7 +8,7 @@
 $servername = "localhost:3307";
 $username = "root";
 $password = "ccis";
-$dbname = "dba_laundryrequest";
+$dbname = "dba_laundry";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
