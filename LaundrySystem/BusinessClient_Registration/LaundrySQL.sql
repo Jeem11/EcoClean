@@ -15,6 +15,8 @@ CREATE DATABASE IF NOT EXIST dba_laundry
 --Use the created database for user/client request
 USE dba_laundry;
 
+--Request Section
+
 --Client/User Section
 
 --Create User/Client Request Table
@@ -43,12 +45,10 @@ CREATE TABLE IF NOT EXISTS request_userpic (
 );
 
 
-
+--===========================
 
 
 --Employee Section
-
---Request Section 
 
 --Create Employee Request Table
 CREATE TABLE IF NOT EXISTS request_employee(
@@ -64,8 +64,7 @@ CREATE TABLE IF NOT EXISTS request_employee(
     rq_date DATE NOT NULL,
     rqemp_username VARCHAR(225) NOT NULL,
     rqemp_userpass VARCHAR(225) NOT NULL,
-    rqemp_status CHAR(15) DEFAULT 'Pending',
-
+    rqemp_status CHAR(15) DEFAULT 'Pending'
 );
 
 --Create Employee Request Profile Table
@@ -105,12 +104,10 @@ CREATE TABLE IF NOT EXISTS request_empPB (
 )
 
 
-
+--===========================
 
 
 --Business Section
-
---Request Section
 
 --Create Business Request table
 CREATE TABLE IF NOT EXISTS request_business (
@@ -126,7 +123,7 @@ CREATE TABLE IF NOT EXISTS request_business (
     rqbs-username VARCHAR(225) NOT NULL,
     rqbs_userpass VARCHAR(225) NOT NULL,
     rqbs_status CHAR(15) DEFAULT 'Pending',
-)--Still missing with subscription attributes (OTW)
+)
 
 --Create Business Owner Profile Request table
 CREATE TABLE IF NOT EXISTS request_bsOwner (
@@ -175,7 +172,111 @@ CREATE TABLE IF NOT EXISTS request_bsAgreement (
     data LONGBLOB NOT NULL
 )
 
+
+
+
+
+
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
 --Registered Section
+
+
+
+--Client/User Section
+
+--Create Client User table
+CREATE TABLE IF NOT EXISTS user_info (
+    user_ID INT PRIMARY KEY,
+    user_name VARCHAR(225) NOT NULL,
+    user_contact VARCHAR(15) NOT NULL,
+    user_email VARCHAR(85) NOT NULL,
+    user_add VARCHAR(225) NOT NULL,
+    user_city CHAR(35) NOT NULL,
+    user_brgy CHAR(35) NOT NULL,
+    rg_date DATE NOT NULL,
+    user_username VARCHAR(225) NOT NULL,
+    user_userpass VARCHAR(225) NOT NULL,
+    rquser_status CHAR(15) DEFAULT 'Approved',
+    FOREIGN KEY (rquser_ID) REFERENCES request_userpic(rquserpic_ID) ON DELETE CASCADE
+)
+
+--Create Client/User table
+CREATE TABLE IF NOT EXIST user_profile (
+    userpic_ID INT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(50) NOT NULL,
+    size BIGINT(20) NOT NULL,
+    data LONGBLOB  NOT NULL
+)
+
+--===========================
+
+--Employee Section
+
+--Create Employee table
+CREATE IF NOT EXISTS employee (
+    emp_ID INT PRIMARY KEY,
+    emp_name VARCHAR(225) NOT NULL,
+    emp_bday DATE NOT NULL,
+    emp_contact VARCHAR(15) NOT NULL,
+    emp_email VARCHAR(85) NOT NULL,
+    emp_add VARCHAR(225) NOT NULL,
+    emp_city CHAR(35) NOT NULL,
+    emp_brgy CHAR(35) NOT NULL,
+    work_shop  VARCHAR(225) NOT NULL,
+    rg_date DATE NOT NULL,
+    emp_username VARCHAR(225) NOT NULL,
+    emp_userpass VARCHAR(225) NOT NULL,
+    emp_status CHAR(15) DEFAULT 'Approved'
+)
+
+--Create Employee Profile table 
+CREATE IF NOT EXISTS employee_profile (
+    emppic_ID INT AUTO_INCREMENT PRIMARY KEY,
+    emp_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(50) NOT NULL,
+    size BIGINT(20) NOT NULL,
+    data LONGBLOB NOT NULL
+);
+
+--Create Employee SSS File table
+CREATE TABLE IF NOT EXISTS employee_SSS (
+    empSSS_ID INT AUTO_INCREMENT PRIMARY KEY,
+    empSSS_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(100) NOT NULL,
+    size INT NOT NULL,
+    data LONGBLOB NOT NULL
+)
+
+--Create Employee PhilHealth File table
+CREATE TABLE IF NOT EXISTS employee_Phil (
+    empPhil_ID INT AUTO_INCREMENT PRIMARY KEY,
+    empPhil_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(100) NOT NULL,
+    size INT NOT NULL,
+    data LONGBLOB NOT NULL
+)
+
+--Create Employee Pag-IBIG File table
+CREATE TABLE IF NOT EXISTS employee_PB (
+    empPB_ID INT AUTO_INCREMENT PRIMARY KEY,
+    empPB_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(100) NOT NULL,
+    size INT NOT NULL,
+    data LONGBLOB NOT NULL
+)
+
+
+
+--===========================
+
+
+--Business Section
 
 --Create Business Name Registered Table 
 CREATE TABLE IF NOT EXISTS laundry_shops (
@@ -190,6 +291,11 @@ CREATE TABLE IF NOT EXISTS laundry_shops (
     bs_regdate DATA NOT NULL
     bs_status CHAR(15) DEFAULT 'Approved',
 )
+
+--bs_status after official registration:
+--"Approved" - only once the business is registered
+--"Unpaid" - Passed due_pay (see pending_payment table)
+--"Paid" - once due is paid)
 
 --Create Business Account Info
 CREATE TABLE IF NOT EXISTS laundry_account(
@@ -248,7 +354,33 @@ CREATE TABLE IF NOT EXISTS business_Agreements (
 )
 
 
+--===========================
 
 
+--Subscription Section 
 
---Subscription Section (soon)
+--Create Price table
+CREATE TABLE IF NOT EXISTS subscription (
+    sub_ID CHAR(5) PRIMARY KEY,
+    sub_name CHAR(15) NOT NULL,
+    sub_price INT NOT NULL,
+    sub_pay CHAR(15) NOT NULL
+)
+
+--Create Pending Payment Table
+CREATE IF NOT EXISTS pending_payment (
+    curr_ID INT AUTO_INCREMENT PRIMARY KEY,
+    bs_ID INT NOT NULL,
+    sub_ID CHAR(5),
+    total_pay INT NOT NULL,
+    due_pay DATE NOT NULL
+)
+
+--Create Payment table
+CREATE TABLE IF NOT EXISTS payment (
+    pay_ID INT AUTO_INCREMENT PRIMARY KEY,
+    bs_ID INT NOT NULL,
+    sub_ID CHAR(5) NOT NULL,
+    total_pay INT NOT NULL,
+    pay_date DATE NOT NULL
+)
