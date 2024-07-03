@@ -3,63 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Landing Page</title>
+    <title>Employee Interface</title>
     <link rel="stylesheet" href="elanding.css">
 </head>
 <body>
-    <header>
-        <h1>Employee Landing Page</h1>
-    </header>
+    <?php include 'header.php'; ?>
 
-    <main>
-        <h2>Customers Progress</h2>
-        <table id="customerTable">
+    <div class="content">
+        <h1>Customer Status</h1>
+        <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Status</th>
+                    <th>Customer Name</th>
+                    <th>Laundry Status</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Customer records will be populated here -->
+                <?php
+                // Database connection details
+                $servername = "localhost";
+                $username = "username";
+                $password = "password";
+                $dbname = "database_name";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Handle status update if form is submitted
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['status']) && isset($_POST['customer_id'])) {
+                    // Prepare SQL statement to update status based on customer ID
+                    $status = $_POST['status'];
+                    $customer_id = $_POST['customer_id'];
+
+                    $sql = "UPDATE customer_status SET laundry_status = '$status' WHERE id = $customer_id";
+
+                    if ($conn->query($sql) === TRUE) {
+                        echo "<script>alert('Status updated successfully');</script>";
+                    } else {
+                        echo "<script>alert('Error updating status: " . $conn->error . "');</script>";
+                    }
+                }
+
+                // SQL query to fetch data
+                $sql_select = "SELECT id, customer_name, laundry_status FROM customer_status";
+                $result = $conn->query($sql_select);
+
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>" . $row["customer_name"]. "</td>
+                                <td class='status-cell'>
+                                    <form method='post' class='status-form'>
+                                        <input type='hidden' name='customer_id' value='" . $row["id"] . "'>
+                                        <input type='hidden' class='status-input' name='status' value='" . $row["laundry_status"] . "'>
+                                        <div class='dropdown'>
+                                            <span class='dropdown-btn'>" . $row["laundry_status"] . "</span>
+                                            <div class='dropdown-content'></div>
+                                        </div>
+                                    </form>
+                                </td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='2'>No records found</td></tr>";
+                }
+
+                $conn->close();
+                ?>
             </tbody>
         </table>
-    </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Example customer data, in a real scenario this will come from the backend
-            const customers = [
-                {}, // Add as many empty objects as needed to represent customers
-                {},
-                {}
-            ];
-
-            const tableBody = document.querySelector("#customerTable tbody");
-
-            customers.forEach(() => {
-                const row = document.createElement("tr");
-
-                const nameCell = document.createElement("td");
-                nameCell.textContent = ""; // No name for customers
-                row.appendChild(nameCell);
-
-                const statusCell = document.createElement("td");
-                const dropdown = document.createElement("select");
-                const statuses = ["waiting", "under wash", "drying", "folding", "ready for pick-up"];
-                
-                statuses.forEach(status => {
-                    const option = document.createElement("option");
-                    option.value = status;
-                    option.textContent = status;
-                    dropdown.appendChild(option);
-                });
-                statusCell.appendChild(dropdown);
-                row.appendChild(statusCell);
-
-                tableBody.appendChild(row);
-            });
-        });
-    </script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="elanding.js"></script> <!-- Separate JavaScript file -->
 </body>
 </html>
