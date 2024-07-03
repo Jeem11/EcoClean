@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $EmployeeName = $fname . ' ' . $mname . ' ' . $lname;
     }
     
-    $check = "SELECT rquser_name, rquser_email FROM request_user WHERE rquser_name = ? OR rquser_email = ?";
+    $check = "SELECT rqemp_name, rqemp_email FROM request_employee WHERE rqemp_name = ? OR rqemp_email = ?";
     
     $checkstmt  = $conn->prepare($check);
     $checkstmt->bind_param("ss", $EmployeeName, $E_email);

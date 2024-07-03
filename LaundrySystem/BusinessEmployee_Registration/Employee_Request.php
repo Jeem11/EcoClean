@@ -3,7 +3,7 @@ include 'DBLaundryConnect.php';
 
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
-ini_set('error_log', '/path/to/your/error.log'); // Ensure this path is writable
+ini_set('error_log', 'C:\xampp\php\logs\php_error_log'); // Ensure this path is writable
 error_reporting(E_ALL);
 ob_start();
 
@@ -68,7 +68,7 @@ try {
         if (!$stmtSSS) {
             throw new Exception('Prepare failed for request_empsss: ' . $conn->error);
         }
-        $stmtSSS->bind_param("isssi", $rqemppic_ID, $EmployeeName, $SSS_no, $mime, $size, $data);
+        $stmtSSS->bind_param("issssi", $rqemppic_ID, $EmployeeName, $SSS_no, $mime, $size, $data);
         if (!$stmtSSS->execute()) {
             throw new Exception('Failed to insert into request_empsss: ' . $stmtSSS->error);
         }
@@ -89,7 +89,7 @@ try {
             if (!$stmtPhil) {
                 throw new Exception('Prepare failed for request_empphil: ' . $conn->error);
             }
-            $stmtPhil->bind_param("isssi", $rqemppic_ID, $EmployeeName, $PHealth_no, $mime, $size, $data);
+            $stmtPhil->bind_param("issssi", $rqemppic_ID, $EmployeeName, $PHealth_no, $mime, $size, $data);
             if (!$stmtPhil->execute()) {
                 throw new Exception('Failed to insert into request_empphil: ' . $stmtPhil->error);
             }
@@ -132,7 +132,7 @@ try {
         if (!$stmtAgreement) {
             throw new Exception('Prepare failed for request_empagreement: ' . $conn->error);
         }
-        $stmtAgreement->bind_param("isssi", $rqemppic_ID, $EmployeeName, $lname, $mime, $size, $data);
+        $stmtAgreement->bind_param("issssi", $rqemppic_ID, $EmployeeName, $lname, $mime, $size, $data);
         if (!$stmtAgreement->execute()) {
             throw new Exception('Failed to insert into request_empagreement: ' . $stmtAgreement->error);
         }
@@ -170,4 +170,3 @@ ob_end_flush();
 
 // Close database connection
 $conn->close();
-?>
