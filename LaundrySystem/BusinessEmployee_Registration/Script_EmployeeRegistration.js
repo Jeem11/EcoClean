@@ -562,9 +562,42 @@ document.addEventListener('DOMContentLoaded', function(){
         
         if(valid2){
             resetOutlineColor(Employee_usernm, Employee_userps, Employee_secps);
+            const confirmation = confirm("Send Request?");
+            event.preventDefault();
+
+            if(confirmation){
+                const employeeData = new FormData(E_form);
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'Employee_Request.php',
+                    data: employeeData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log('AJAX success. Response:', response);
+                        if (response.status === 'success') {
+                            alert(response.message);
+                            E_form.reset();
+                            window.location.href = 'employee_Form.php';
+                            const empID = response.EmpID;
+                            console.log('EmpID:', empID);
+                        } else {
+                            alert(response.message);
+                            console.error('Server returned error status:', response.status);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX error. Status:', textStatus, 'Error:', errorThrown);
+                        alert('An error occurred while processing your request.');
+                    }
+                });
+                
+            }
             
-            //Additional PHP shit here
-            
+        }else{
+            E_form.reset();
         }
         
         

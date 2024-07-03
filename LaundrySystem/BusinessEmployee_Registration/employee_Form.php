@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form id="employee_form" method="post">
+        <form action="Employee_Request.php" id="employee_form" method="post">
             <div class="Box">
                 <div class="Container">
                     <div class="Form">
@@ -145,5 +145,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </div>
         </form>
         <script src="Script_EmployeeRegistration.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </body>
 </html>

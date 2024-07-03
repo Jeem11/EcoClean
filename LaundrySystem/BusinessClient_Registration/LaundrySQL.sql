@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS request_employeepic (
 CREATE TABLE IF NOT EXISTS request_empSSS (
     rqempSSS_ID INT AUTO_INCREMENT PRIMARY KEY,
     rqempSSS_name VARCHAR(225) NOT NULL,
+    rqempSSS_no CHAR(20) NOT NULL,
     mime VARCHAR(100) NOT NULL,
     size INT NOT NULL,
     data LONGBLOB NOT NULL
@@ -92,6 +93,7 @@ CREATE TABLE IF NOT EXISTS request_empSSS (
 CREATE TABLE IF NOT EXISTS request_empPhil (
     rqempPhil_ID INT AUTO_INCREMENT PRIMARY KEY,
     rqempPhil_name VARCHAR(225) NOT NULL,
+    rqempPhil_no CHAR(20) NOT NULL,
     mime VARCHAR(100) NOT NULL,
     size INT NOT NULL,
     data LONGBLOB NOT NULL
@@ -101,8 +103,19 @@ CREATE TABLE IF NOT EXISTS request_empPhil (
 CREATE TABLE IF NOT EXISTS request_empPB (
     rqempPB_ID INT AUTO_INCREMENT PRIMARY KEY,
     rqempPB_name VARCHAR(225) NOT NULL,
+    rqempPB_no CHAR(20) NOT NULL,
     mime VARCHAR(100) NOT NULL,
     size INT NOT NULL,
+    data LONGBLOB NOT NULL
+);
+
+-- Create Employee Agreement Request table
+CREATE TABLE IF NOT EXISTS request_empAgreement (
+    rqemp_ID INT AUTO_INCREMENT PRIMARY KEY,
+    rqemp_name VARCHAR(225) NOT NULL,
+    rqempSign_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(50) NOT NULL,
+    size BIGINT(20) NOT NULL,
     data LONGBLOB NOT NULL
 );
 
