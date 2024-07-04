@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form id="businessForm" method="post">
+        <form action="Business_Request.php" id="businessForm" method="post" enctype="multipart/form-data">
             <div class="Box">
                 <div class="Container">
                     <div class="Form">
@@ -129,18 +129,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             <input type="text" name="registration_date" id="reg_date" class="date" readonly>
                             <div class="btn2">
                                 <button class="sign-btn2 back-btn2">Back</button>
-                                <button class="sign-btn2 next-btn2">Next</button>
-                            </div>
-                        </div>
-                        <div class="Sub_info" id="Section3">
-                            <p class ="tag">Subscription Plan</p> 
-
-                            <!--Subscription Details + Payment API-->
-
-                            <br>
-                            <div class="btn3">
-                                <button class="sign-btn3 back-btn3">Back</button>
-                                <button class="sign-btn3 Reg-btn3">Register</button>
+                                <button class="sign-btn2 Reg-btn2">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -148,5 +137,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </div>
         </form>
         <script src="Script_BusinessRegistration.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </body>
 </html>

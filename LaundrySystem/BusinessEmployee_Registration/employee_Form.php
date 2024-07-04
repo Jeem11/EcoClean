@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="Employee_Request.php" id="employee_form" method="post" enctype="multipart/form-data>
+        <form action="Employee_Request.php" id="employee_form" method="post" enctype="multipart/form-data">
             <div class="Box">
                 <div class="Container">
                     <div class="Form">

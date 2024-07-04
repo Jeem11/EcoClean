@@ -359,57 +359,6 @@ body::-webkit-scrollbar {
 
 
 
-/*Section 3: class="Sub_info" id="Section3" */
-.Sub_info{
-    width: 800px;
-    margin-bottom: 25px;
-    margin-left: 35px;
-    justify-content: left;
-    display: none;
-}
-
-.Sub_info .btn3{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 10px;
-    padding: 0; 
-    gap: 65%; 
-}
-
-.Sub_info .btn3 .sign-btn3{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 30px;
-    font-size: 20px;
-    font-family: Garamond;
-    color: grey;
-    padding: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box;
-    margin: 0; 
-    border: 1px solid gray;
-    border-radius: 7px;
-    text-decoration: none;
-    outline: 2px solid transparent;
-    cursor: pointer;
-}
-
-.Sub_info .btn3 .sign-btn3:hover{
-    color: rgb(0,128,0);
-    outline-color: rgb(0,128,0);
-    outline-color: rgb(50,205,50);
-    outline-width: 1px;
-    outline-style: solid;
-}
-
-
-
-
-
 .invalid-input {
     outline: 2px solid red !important;
 }

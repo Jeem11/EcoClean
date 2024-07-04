@@ -55,14 +55,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const Business_secps = document.querySelector('[name="Bsecure_pass"]');
     //Button Section2:
     const back2 = document.querySelector('.back-btn2');
-    const next2 = document.querySelector('.next-btn2');
-    
-    //Section 3: class="Sub_info" id="Section3"
-    const subpay_info = document.getElementById('Section3');
-    
-    //Button Section3:
-    const back3 = document.querySelector('.back-btn3');
-    const reg3 = document.querySelector('.Reg-btn3');
+    const sub2 = document.querySelector('.Reg-btn2');
     
     
     
@@ -125,6 +118,19 @@ document.addEventListener('DOMContentLoaded', function(){
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    function displayLogoPicture(input, imgElement) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imgElement.src = e.target.result;
+                imgElement.style.display = 'block';
+                LogoIcon.style.display = 'none';
+                
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
     
     function setRegistrationDate() {
         var today = new Date();
@@ -161,16 +167,12 @@ document.addEventListener('DOMContentLoaded', function(){
     LogoIcon.addEventListener('click', function() {
         B_logo.click();
     });
-
-    B_logo.addEventListener('change', function() {
-        displayProfilePicture(this, LogoPreview);
-    });
     
     B_logo.addEventListener('change', function() {
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (validateFileType(file, validImageTypes)) {
-            displayProfilePicture(this, profilePreview);
+            displayLogoPicture(this, LogoPreview);
         } else {
             alert('Invalid file type. Please select a JPEG, PNG, or GIF image.');
         }
@@ -214,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 'Poblacion Itaas', 'San Isidro', 'Santo Niño', 'San Pedro', 'San Roque', 
                 'San Vicente']);
         }else if(Shop_Select.value === 'Antipolo'){
-            AddBrgy(['Bagon Nayon', 'Beverly Hills', 'Calawis', 'Cupang', 'Dalig', 
+            AddBrgy(['Bagong Nayon', 'Beverly Hills', 'Calawis', 'Cupang', 'Dalig', 
                 'Dela Paz', 'Inarawan', 'Mambugan', 'Mayamot', 'Muntingdilaw', 'San Isidro', 
                 'San Jose', 'San Juan', 'San Luis', 'San Roque', 'Santa Cruz']);
         }else if(Shop_Select.value === 'Baras'){
@@ -278,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png'];
         if (validateFileType(file, validImageTypes)) {
-            displayProfilePicture(this, document.getElementById('LogoPreview'));
+            displayLogoPicture(this, document.getElementById('LogoPreview'));
         } else {
             alert('Invalid file type. Please select a JPEG or PNG image.');
         }
@@ -381,17 +383,43 @@ document.addEventListener('DOMContentLoaded', function(){
             valid = true; //this one might change
         }
         
-        //Some random AJAX and shit
+        if(valid){
+            $.ajax({
+                type: 'POST',
+                url: 'BusinessVerifier.php',
+                data:{
+                    business_name: ShopName.value
+                },
+                success: function(response){
+                    console.log('AJAX success. Response:'. response);
+                    if(response === "exists"){
+                        ShopName.classList.add('invalid-input');
+
+                        alert('Business Name already exists.');
+                        valid = false;
+                    }else if(response === "not_exists"){
+                        ShopName.classList.remove('invalid-input');
+                    }
+
+
+                    if(valid){
+                        resetOutlineColor(ShopName, Owner_lname, Owner_fname, Owner_mname, profileIcon,
+                            Shop_Add, Shop_Muni, Shop_Brgy, B_contact, B_email);
+                        
+                        
+                        Business_info.style.display = 'none';
+                        Additional_info.style.display = 'block';
+                    }
+                },
+                error: function(){
+                    console.log('AJAX error');
+                    alert('Error connecting to BusinessVerifier');
+                }
+            });
+        }
    
         //Final Condition to process to the next section
-        if(valid){
-            resetOutlineColor(ShopName, Owner_lname, Owner_fname, Owner_mname, profileIcon,
-                Shop_Add, Shop_Muni, Shop_Brgy, B_contact, B_email);
-            
-            
-            Business_info.style.display = 'none';
-            Additional_info.style.display = 'block';
-        }
+        
         
     });
     
@@ -407,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log('Agreement:', Agreement);
     console.log('Owner_Sign:', Owner_Sign);
     
-    next2.addEventListener('click', function(){
+    sub2.addEventListener('click', function(){
         event.preventDefault();
         let valid2 = false;
         
@@ -532,24 +560,51 @@ document.addEventListener('DOMContentLoaded', function(){
             valid2 = true;//this one might change
         }
         
-        //Some random AJAX and shit
-        
-        //Final Condition to process to the next section
+        //Final Condition to process to submit
         if(valid2){
             resetOutlineColor(DTI_No, DTI_File, TIN_No, TIN_File, LogoIcon, Agreement,
             Owner_Sign, Sign_Date, Business_usernm, Business_userps, Business_secps);
             setRegistrationDate();
-            Additional_info.style.display = 'none';
-            subpay_info.style.display = 'block';
+            const confirmation = confirm("Send Request?");
+            event.preventDefault();
+
+            if(confirmation){
+                const businessData = new FormData(B_form);
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'Business_Request.php',
+                    data: businessData,
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function(response){
+                        console.log('AJAX success. Response:', response);
+                        if(response.status === 'success'){
+                            alert(response.message);
+                            B_form.reset();
+                            window.location.href = 'business_Form.php'; //will change, this is just for the sake of testing
+                            const shopID = response.ShopID;
+                            console.log('ShopID:', shopID);
+                        }else{
+                            alert(response.message);
+                            console.error('Server returned error status:', response.status);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.error('AJAX error. Status:', textStatus, 'Error:', errorThrown);
+                        alert('An error occurred while processing your request.');
+                    }
+                });
+            }
+        }else if(!valid2){
+            alert('Please complete the required fields with correct credentials.');
+        }else{
+            B_form.reset();
         }
         
     });
     
-    back3.addEventListener('click', function(){
-        event.preventDefault();
-        subpay_info.style.display = 'none';
-        Additional_info.style.display = 'block';
-    });
     
     
     

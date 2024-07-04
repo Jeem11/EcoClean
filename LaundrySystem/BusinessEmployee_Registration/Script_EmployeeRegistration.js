@@ -596,6 +596,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 
             }
             
+        }else if(!valid2){
+            alert('Please complete the required fields with correct credentials.');
         }else{
             E_form.reset();
         }
