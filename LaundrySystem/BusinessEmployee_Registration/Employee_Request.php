@@ -26,7 +26,7 @@ try {
     $E_add = $_POST['employee_add'];
     $E_city = $_POST['City'];
     $E_brgy = $_POST['brgy'];
-    $shop = 'Laundry Shop';
+    $shop = $_POST['LaundryShop'];
     $E_username = $_POST['E_username'];
     $E_pass = $_POST['E_password'];
     $SSS_no = $_POST['SSS'];
