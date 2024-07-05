@@ -12,10 +12,12 @@ ini_set('display_errors', 1);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $shopName = $_POST['business_name'];
     
-    $check = "SELECT rqbs_name FROM request_business WHERE rqbs_name = ?";
+    $check = "SELECT rqbs_name FROM request_business WHERE rqbs_name = ?
+            UNION
+            SELECT bs_name FROM laundry_shops WHERE bs_name = ?";
     
     $checkstmt  = $conn->prepare($check);
-    $checkstmt->bind_param("s", $shopName);
+    $checkstmt->bind_param("ss", $shopName, $shopName);
     $checkstmt->execute();
     $result = $checkstmt->get_result();
     

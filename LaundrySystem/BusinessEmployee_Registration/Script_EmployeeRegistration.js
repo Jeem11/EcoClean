@@ -144,6 +144,57 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         return age;
     }
+
+    function fetchLaundryShops() {
+        const brgyValue = Brgy_Select.value;
+        const cityValue = Emp_Select.value;
+    
+        const url = `fetch_shop.php?brgy=${encodeURIComponent(brgyValue)}&job=${encodeURIComponent(cityValue)}`;
+    
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Fetched data:', data);
+                Job_select.innerHTML = '';
+
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Shop';
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                Job_select.appendChild(defaultOption);
+
+                data.forEach(shop => {
+                    const option = document.createElement('option');
+                    option.value = shop;
+                    option.textContent = shop;
+                    Job_select.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching laundry shops:', error);
+                alert('Error fetching laundry shops. Please try again later.');
+            });
+    }
+
+    function clearJobSelect() {
+        Job_select.innerHTML = '';
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Shop';
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        Job_select.appendChild(defaultOption);
+    }
+    
+    
+    
+
     
     
     
@@ -183,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     
     Emp_Select.addEventListener('change', function(){
+        clearJobSelect();
         Brgy_Select.innerHTML = '';
         
         const placeholderOption = document.createElement('option');
@@ -245,6 +297,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 'Poblacion', 'Prinza', 'San Gabriel', 'San Roque']);
         }
     });
+
+    Brgy_Select.addEventListener('change', function(){
+        fetchLaundryShops();
+        clearJobSelect();
+    });
     
     Employee_pic.addEventListener('change', function() {
         const file = this.files[0];
@@ -260,6 +317,7 @@ document.addEventListener('DOMContentLoaded', function(){
         event.preventDefault();
         const selected_ct = Emp_Muni.value;
         const selected_brgy = Emp_Brgy.value;
+        const selected_shop = Job_shop.value;
         
         const philHealthNo = PhilH_No.value;
         const philHealthFileInput = document.getElementById('F_PHealth');
@@ -277,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function(){
            !validateFileType(Employee_pic.files[0], ['image/jpeg', 'image/png', 'image/gif']) ||
            selected_ct === null || selected_ct === '' ||
            selected_brgy === null || selected_brgy === '' || selected_brgy === 'Barangay' ||
+           selected_shop === null || selected_shop === '' || selected_shop === 'Shop' ||
            E_contact.value === '' || !validateNo(E_contact.value) ||
            E_email.value === '' || !validateEmail(E_email.value) || 
            //Extra Condition for the shop affiliation (To update from DB) insert here
@@ -345,6 +404,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 Emp_Brgy.classList.add('invalid-input');
             }else{
                 Emp_Brgy.classList.remove('invalid-input');
+            }
+
+            if(selected_shop === null || selected_shop === '' || selected_shop === 'Shop'){
+                Job_shop.classList.add('invalid-input');
+            }else{
+                Job_shop.classList.remove('invalid-input');
             }
                
             if(E_contact.value === '' || !validateNo(E_contact.value)){

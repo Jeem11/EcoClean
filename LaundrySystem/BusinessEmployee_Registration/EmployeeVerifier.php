@@ -22,10 +22,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $EmployeeName = $fname . ' ' . $mname . ' ' . $lname;
     }
     
-    $check = "SELECT rqemp_name, rqemp_email FROM request_employee WHERE rqemp_name = ? OR rqemp_email = ?";
+    $check = "SELECT rqemp_name, rqemp_email FROM request_employee WHERE rqemp_name = ? OR rqemp_email = ?
+        UNION
+        SELECT emp_name, emp_email FROM employee WHERE emp_name = ? OR emp_email = ?";
     
     $checkstmt  = $conn->prepare($check);
-    $checkstmt->bind_param("ss", $EmployeeName, $E_email);
+    $checkstmt->bind_param("ssss", $EmployeeName, $E_email, $EmployeeName, $E_email);
     $checkstmt->execute();
     $result = $checkstmt->get_result();
     
