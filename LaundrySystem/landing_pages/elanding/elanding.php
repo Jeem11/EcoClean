@@ -1,19 +1,19 @@
 <?php
-
-$servername = "localhost:3307";
+$servername = "localhost";
 $username = "root";
 $password = "ccis";
 $dbname = "dba_laundry";
+$port = 3306; // Default MySQL port
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
