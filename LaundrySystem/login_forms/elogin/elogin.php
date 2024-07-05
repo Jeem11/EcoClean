@@ -1,54 +1,53 @@
 <?php
 session_start();
+$login_error = '';
 
-// Database credentials
-$servername = "localhost"; // Change to your database server
-$username = "your_db_username"; // Change to your database username
-$password = "your_db_password"; // Change to your database password
-$dbname = "your_db_name"; // Change to your database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$error = "";
-
+// Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $servername = "localhost:3307";
+    $username = "root";
+    $password = "ccis";
+    $dbname = "dba_laundry";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Get user input
+    $user_username = $_POST['username'];
+    $user_password = $_POST['password'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("SELECT * FROM employees WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
+    $stmt = $conn->prepare("SELECT rqemp_ID, rqemp_username, rqemp_userpass FROM request_employee WHERE rqemp_username = ? AND rqemp_userpass = ?");
+    $stmt->bind_param("ss", $user_username, $user_password);
 
-    // Execute the query
+    // Execute statement
     $stmt->execute();
 
-    // Store the result
+    // Store result
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        // Correct credentials, start session
-        $_SESSION['username'] = $username;
-        echo "Login successful!";
-        // Redirect to a different page (e.g., dashboard)
-        // header("Location: dashboard.php");
-        // exit();
+        // User exists, start session
+        $_SESSION['username'] = $user_username;
+        header("Location: employee_interface.php");
+        exit();
     } else {
-        // Incorrect credentials
-        $error = "Incorrect username or password.";
+        // User does not exist or wrong credentials
+        $login_error = "Invalid username or password.";
     }
 
-    // Close statement and connection
+    // Close connections
     $stmt->close();
+    $conn->close();
 }
-
-$conn->close();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,10 +63,7 @@ $conn->close();
     </header>
     <div class="login-container">
         <h2>Employee Login</h2>
-        <?php if ($error): ?>
-            <p style="color: red;"><?php echo $error; ?></p>
-        <?php endif; ?>
-        <form action="" method="post">
+        <form action="login.php" method="post">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter email" required>
@@ -78,6 +74,11 @@ $conn->close();
             </div>
             <button type="submit">Login</button>
         </form>
+        <?php
+        if (!empty($login_error)) {
+            echo "<p class='error-message'>$login_error</p>";
+        }
+        ?>
     </div>
 </body>
 </html>
