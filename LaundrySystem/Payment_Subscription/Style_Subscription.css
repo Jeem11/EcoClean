@@ -91,6 +91,10 @@ p {
     box-shadow: 0 0 20px rgba(11, 73, 206, 0.8);
 }
 
+.vip .subscribe-button:hover{
+    box-shadow: 0 0 20px aqua;
+}
+
 .features {
     list-style: none;
     padding: 0;
