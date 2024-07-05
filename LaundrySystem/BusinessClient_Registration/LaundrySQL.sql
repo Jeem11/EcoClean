@@ -388,3 +388,11 @@ CREATE TABLE IF NOT EXISTS payment (
     pay_date DATE NOT NULL,
     paypic_ID INT NOT NULL
 );
+
+--JM put this
+-- Create Customer Status Table
+CREATE TABLE IF NOT EXISTS customer_status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    laundry_status VARCHAR(50) NOT NULL
+);

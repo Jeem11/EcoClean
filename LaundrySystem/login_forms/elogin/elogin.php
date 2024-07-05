@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_password = $_POST['password'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("SELECT rqemp_ID, rqemp_username, rqemp_userpass FROM request_employee WHERE rqemp_username = ? AND rqemp_userpass = ?");
+    $stmt = $conn->prepare("SELECT emp_ID, emp_username, emp_userpass FROM employee WHERE emp_username = ? AND emp_userpass = ?");
     $stmt->bind_param("ss", $user_username, $user_password);
 
     // Execute statement
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         // User exists, start session
         $_SESSION['username'] = $user_username;
-        header("Location: employee_interface.php");
+        header("Location: elanding.php"); // Redirect to employee interface
         exit();
     } else {
         // User does not exist or wrong credentials
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 
 <!DOCTYPE html>

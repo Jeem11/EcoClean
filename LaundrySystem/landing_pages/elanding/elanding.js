@@ -30,7 +30,7 @@ $(document).ready(function() {
             // Submit the form using AJAX
             $.ajax({
                 type: 'POST',
-                url: '', // Current page URL
+                url: 'elanding.php', // Replace with your PHP script URL
                 data: {
                     customer_id: cell.querySelector('input[name="customer_id"]').value,
                     status: this.value
