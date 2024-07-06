@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <form id="subscription_page" method="post">
+    <form>
         <div class="container">
             <h1>Pay Subscription</h1>
             <p>Choose and pay your subscription for your laundry shop to reach more customers with easy online booking and secure payment processing</p>
@@ -16,7 +16,7 @@
                     <h2>Basic</h2>
                     <div class="price">PHP 700</div>
                     <div class="billing">Monthly Subscription Term</div>
-                    <button class="subscribe-button" name="basic" id="basic_sub">Subscribe</button>
+                    <button type="button" class="subscribe-button" name="basic" id="basic_sub" value="basic">Subscribe</button>
                     <ul class="features">
                         <li>Upload up to 10 pictures</li>
                         <li>Laundry shop listing visible on the website for one month</li>
@@ -28,7 +28,7 @@
                     <h2>Standard</h2>
                     <div class="price">PHP 1,500</div>
                     <div class="billing">Quarterly Subscription Term</div>
-                    <button class="subscribe-button" name="standard" id="standard_sub">Subscribe</button>
+                    <button type="button" class="subscribe-button" name="standard" id="standard_sub" value="standard">Subscribe</button>
                     <ul class="features">
                         <li>Upload up to 20 pictures</li>
                         <li>Laundry shop listing visible on the website for three months</li>
@@ -40,7 +40,7 @@
                     <h2>Premium</h2>
                     <div class="price">PHP 2,500</div>
                     <div class="billing">Bi-Annual Subscription Term</div>
-                    <button class="subscribe-button" name="premium" id="premium_sub">Subscribe</button>
+                    <button type="button" class="subscribe-button" name="premium" id="premium_sub" value="premium">Subscribe</button>
                     <ul class="features">
                         <li>Upload up to 30 pictures for promotional purposes</li>
                         <li>Laundry shop listing visible on the website for six months</li>
@@ -52,7 +52,7 @@
                     <h2>VIP</h2>
                     <div class="price">PHP 4,000</div>
                     <div class="billing">Annual Subscription Term</div>
-                    <button class="subscribe-button" name="vip" id="vip_sub">Subscribe</button>
+                    <button type="button" class="subscribe-button" name="vip" id="vip_sub" value="vip">Subscribe</button>
                     <ul class="features">
                         <li>Upload unlimited pictures</li>
                         <li>Laundry shop listing visible on the website for one year</li>
@@ -62,5 +62,6 @@
             </div>
         </div>
     </form>
+    <script src="Script_Subscription.js"></script>
 </body>
 </html>

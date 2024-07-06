@@ -1,5 +1,5 @@
 body {
-    background: url('whiteShadow.png') no-repeat center center,
+    background: url('whiteShadow.png') no-repeat center center,  url('whiteShadow.png') no-repeat center center,
         url('WaterSplash.png') no-repeat center center, 
         linear-gradient(to bottom, rgb(2,41,84), rgb(53,76,124), rgb(80,90,116), rgb(176,184,206), rgb(234,235,254));
     background-attachment: fixed;
@@ -21,8 +21,6 @@ body::-webkit-scrollbar {
     text-align: center;
     margin-top: 50px;
     width: 100%;
-    
-    
 }
 
 h1 {
