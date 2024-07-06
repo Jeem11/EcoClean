@@ -120,3 +120,11 @@ input[type="file"] {
 .sub-btn {
     margin-left: 10px;
 }
+
+
+
+
+
+.invalid-input {
+    outline: 2px solid red !important;
+}

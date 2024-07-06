@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <form action="QR_payment.php" id="payment_page" method="post" enctype="multipart/form-data">
+    <form id="payment_page" method="post" enctype="multipart/form-data">
         <div class="container">
             <div class="pay">
                 <img src="GCash-Logo.png" alt="GCash Logo" class="logo">
@@ -35,6 +35,7 @@
             </div>
         </div>
     </form>
+    <script src="Script_Payment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
