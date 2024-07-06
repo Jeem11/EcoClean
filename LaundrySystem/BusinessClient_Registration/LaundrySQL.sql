@@ -355,9 +355,13 @@ CREATE TABLE IF NOT EXISTS business_Agreements (
 -- Create Price table
 CREATE TABLE IF NOT EXISTS subscription (
     sub_ID CHAR(5) PRIMARY KEY,
-    sub_name CHAR(15) NOT NULL,
+    sub_cdname CHAR(15) NOT NULL,
     sub_price INT NOT NULL,
-    sub_pay CHAR(15) NOT NULL
+    sub_pay CHAR(15) NOT NULL,
+    subpay_name VARCHAR(225) NOT NULL,
+    mime VARCHAR(50) NOT NULL,
+    size BIGINT(20) NOT NULL,
+    data LONGBLOB NOT NULL
 );
 
 -- Create Pending Payment Table

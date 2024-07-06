@@ -35,6 +35,23 @@ body::-webkit-scrollbar {
     height: auto;
 }
 
+.qr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.qr img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
 .pay_info {
     margin-top: 20px;
     text-align: left;

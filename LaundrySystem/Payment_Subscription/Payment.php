@@ -7,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <form id="payment_page" method="post" enctype="multipart/form-data">
+    <form action="QR_payment.php" id="payment_page" method="post" enctype="multipart/form-data">
         <div class="container">
             <div class="pay">
                 <img src="GCash-Logo.png" alt="GCash Logo" class="logo">
-                <!-- Display the QR code -->
-                <div>
-                    <img src="qrcode.png" alt="QR Code">
+                <div class="qr">
+                    <?php
+                    if (isset($_GET['plan'])) {
+                        $plan = htmlspecialchars($_GET['plan']);
+                        echo '<img src="QR_payment.php?plan=' . $plan . '" alt="QR Code">';
+                    } else {
+                        echo '<p>No plan selected.</p>';
+                    }
+                    ?>
                 </div>
                 <div class="instruction">
                     <p>Please scan the QR code to complete your payment via GCash and upload a screenshot of the payment confirmation as proof.</p>
@@ -29,5 +35,6 @@
             </div>
         </div>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
