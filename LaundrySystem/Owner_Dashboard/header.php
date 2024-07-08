@@ -33,7 +33,6 @@
                 <div class="dropdown">
                     <button id="dropdownButton">Account</button>
                     <div class="dropdown-content" id="dropdownContent">
-                        <a href="#">Update Profile</a>
                         <a href="logout.php">Logout</a>
                     </div>
                 </div>
