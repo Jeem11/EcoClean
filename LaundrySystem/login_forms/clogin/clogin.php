@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Login Interface</title>
+    <title>Client Login Interface</title>
     <link rel="stylesheet" href="clogin.css">
 </head>
 <body>
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Welcome to EcoClean: Your Partner in Perfect Laundry!</h1>
     </header>
     <div class="login-container">
-        <h2>Customer Login</h2>
+        <h2>Client Login</h2>
         <form action="login.php" method="post">
             <div class="input-group">
                 <label for="username">Username</label>
@@ -76,7 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="button-group">
+                <button type="submit">Login</button>
+                <button type="button" onclick="window.location.href='client_Form.php'">Sign Up</button>
+            </div>
         </form>
         <?php if ($login_error): ?>
             <p style="color: red;"><?php echo $login_error; ?></p>

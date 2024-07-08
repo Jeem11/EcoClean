@@ -8,6 +8,8 @@
     <title>About Us - EcoClean</title>
 </head>
 <body>
+    <?php include 'header.php'; ?>
+    
     <!-- About Us Content -->
     <main class="container">
         <h1>About Us</h1>

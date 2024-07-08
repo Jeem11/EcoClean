@@ -99,6 +99,11 @@ header .logo {
     border-radius: 10px;
 }
 
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
 button {
     background-color: rgb(135, 206, 235);
     color: black;
@@ -106,13 +111,18 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: 48%;
     font-size: 1rem; /* Adjust font size for responsiveness */
 }
 
 button:hover {
     background-color: rgb(65, 105, 225);
     color: white;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
 }
 
 /* Responsive Design */

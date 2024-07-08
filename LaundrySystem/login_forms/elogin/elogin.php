@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         // User exists, start session
         $_SESSION['username'] = $user_username;
-        header("Location: elanding.php");
+        echo "<script>alert('Login Successful!'); window.location.href='elanding.php';</script>";
         exit();
     } else {
         // User does not exist or wrong credentials
@@ -71,7 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="button-group">
+                <button type="submit">Login</button>
+                <button type="button" onclick="window.location.href='employee_Form.php'">Sign Up</button>
+            </div>
         </form>
         <?php
         if (!empty($login_error)) {
