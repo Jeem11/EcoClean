@@ -1,25 +1,4 @@
 <?php
-session_start();
-
-// Redirect to login if not logged in
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-
-$servername = "localhost";
-$username = "root";
-$password = "ccis";
-$dbname = "dba_laundry";
-$port = 3306; // Default MySQL port
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 include 'header.php';
 ?>
