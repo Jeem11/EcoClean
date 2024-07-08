@@ -73,4 +73,5 @@ $conn->close();
     image_path VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+      di ko alam kung tama ba itong pinaglagay ko for fetching
         -->
