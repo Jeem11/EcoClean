@@ -56,23 +56,23 @@ if ($result->num_rows > 0){
 
         // SSS Number button with condition
         if (!empty($row['rqempSSS_no'])) {
-            echo "<strong>SSS No:</strong> <button style='margin-right: 10px;' onclick=\"window.open('get_SSS.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempSSS_no']}</button>";
+            echo "<strong>SSS No:</strong> <button style='margin-right: 80px;' onclick=\"window.open('get_SSS.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempSSS_no']}</button>";
         } else {
-            echo "<strong>SSS No:</strong> No SSS File";
+            echo "<strong>No SSS File</strong>";
         }
 
         // PhilHealth Number button with condition
         if (!empty($row['rqempPhil_no'])) {
-            echo "<strong>PhilHealth No:</strong> <button style='margin-right: 10px;' onclick=\"window.open('get_Phil.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempPhil_no']}</button>";
+            echo "<strong>PhilHealth No:</strong> <button style='margin-right: 80px;' onclick=\"window.open('get_Phil.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempPhil_no']}</button>";
         } else {
-            echo "<strong>PhilHealth No:</strong> No PhilHealth File";
+            echo "<strong>No PhilHealth File</strong>";
         }
 
         // Pag-IBIG Number button with condition
         if (!empty($row['rqempPB_no'])) {
-            echo "<strong>Pag_IBIG No:</strong> <button style='margin-right: 10px;' onclick=\"window.open('get_PB.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempPB_no']}</button>";
+            echo "<strong>Pag_IBIG No:</strong> <button style='margin-right: 80px;' onclick=\"window.open('get_PB.php?rqemp_ID={$row['rqemp_ID']}')\">{$row['rqempPB_no']}</button>";
         } else {
-            echo "<strong>Pag_IBIG No:</strong> No Pag-IBIG File";
+            echo "<strong>No Pag-IBIG File</strong>";
         }
 
         echo "</td></tr>";
