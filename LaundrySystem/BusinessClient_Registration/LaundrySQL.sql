@@ -400,3 +400,75 @@ CREATE TABLE IF NOT EXISTS payment (
     paypic_ID INT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS rejected_account(
+    rq_ID INT AUTO_INCREMENT PRIMARY KEY,
+    rq_username VARCHAR(225),
+    rq_userpass VARCHAR(225)
+);
+
+
+
+
+
+
+
+
+
+//Triggers
+
+DELIMITER $$
+
+CREATE TRIGGER after_request_business_update
+AFTER UPDATE ON request_business
+FOR EACH ROW
+BEGIN
+    IF NEW.rqbs_status = 'Approved' THEN
+        -- Insert into laundry_shops
+        INSERT INTO laundry_shops (bs_ID, bs_name, bs_owner, bs_add, bs_city, bs_brgy, bs_contact, bs_email, bs_regdate, bs_status)
+        VALUES (NEW.rqbs_ID, NEW.rqbs_name, NEW.rqbs_owner, NEW.rqbs_add, NEW.rqbs_city, NEW.rqbs_brgy, NEW.rqbs_contact, NEW.rqbs_email, NEW.rqbs_regdate, 'Approved');
+        
+        -- Insert into laundry_account
+        INSERT INTO laundry_account (bs_ID, bs_username, bs_userpass)
+        VALUES (NEW.rqbs_ID, NEW.rqbs_username, NEW.rqbs_userpass);
+        
+        -- Insert into business_owner
+        INSERT INTO business_owner (bs_ID, bs_owner, bsowner_filenm, mime, size, data)
+        SELECT rqbs_ID, rqbs_owner, rqbsowner_filenm, mime, size, data
+        FROM request_bsOwner
+        WHERE rqbs_ID = NEW.rqbs_ID;
+        
+        -- Insert into laundry_Logo
+        INSERT INTO laundry_Logo (bs_ID, bslogo_name, mime, size, data)
+        SELECT rqbs_ID, rqbslogo_name, mime, size, data
+        FROM request_bsLogo
+        WHERE rqbs_ID = NEW.rqbs_ID;
+        
+        -- Insert into businessDTI_File
+        INSERT INTO businessDTI_File (bs_ID, bsDTI_ID, bsDTI_name, bsDTI_No, mime, size, data)
+        SELECT rqbs_ID, rqbsDTI_ID, rqbsDTI_name, rqbsDTI_No, mime, size, data
+        FROM request_bsDTI
+        WHERE rqbsDTI_ID = NEW.rqbs_ID;
+        
+        -- Insert into businessTIN_File
+        INSERT INTO businessTIN_File (bs_ID, bsTIN_ID, bsTIN_name, bsTIN_No, mime, size, data)
+        SELECT rqbs_ID, rqbsTIN_ID, rqbsTIN_name, rqbsTIN_No, mime, size, data
+        FROM request_bsTIN
+        WHERE rqbsTIN_ID = NEW.rqbs_ID;
+        
+        -- Insert into business_Agreements
+        INSERT INTO business_Agreements (bs_ID, bs_owner, bsSign_name, mime, size, data)
+        SELECT rqbs_ID, rqbs_owner, rqbsSign_name, mime, size, data
+        FROM request_bsAgreement
+        WHERE rqbs_ID = NEW.rqbs_ID;
+        
+        -- Delete records from request tables
+        DELETE FROM request_business WHERE rqbs_ID = NEW.rqbs_ID;
+        DELETE FROM request_bsOwner WHERE rqbs_ID = NEW.rqbs_ID;
+        DELETE FROM request_bsLogo WHERE rqbs_ID = NEW.rqbs_ID;
+        DELETE FROM request_bsDTI WHERE rqbsDTI_ID = NEW.rqbs_ID;
+        DELETE FROM request_bsTIN WHERE rqbsTIN_ID = NEW.rqbs_ID;
+        DELETE FROM request_bsAgreement WHERE rqbs_ID = NEW.rqbs_ID;
+    END IF;
+END$$
+
+DELIMITER ;

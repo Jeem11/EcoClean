@@ -66,10 +66,20 @@ document.addEventListener('DOMContentLoaded', function () {
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4) {
                 if (this.status === 200) {
-                    console.log('Status updated successfully');
-                    // If status is approved, show an additional alert about the email
-                    if (newValue === 'Approved') {
-                        alert('The business has been approved and an email has been sent to the business owner.');
+                    var response = JSON.parse(this.responseText);
+                    if (response.success) {
+                        console.log('Status updated successfully');
+                        // If status is approved, show an additional alert about the email
+                        if (newValue === 'Approved') {
+                            alert('The business has been approved and an email has been sent to the business owner.');
+                        }
+                        // Reload the data to reflect changes
+                        fetchData();
+                    } else {
+                        console.error('Error updating status:', response.message);
+                        // Revert the select value if updating the status fails
+                        var selectElement = document.querySelector('tr[data-row-id="' + rowId + '"] .status-select');
+                        selectElement.value = initialValue;
                     }
                 } else {
                     console.error('Error updating status:', this.status);
@@ -81,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         xhttp.send('rowId=' + rowId + '&newValue=' + newValue);
     }
+    
+    
 
     function attachRowClickListeners() {
         $('#rqbusiness_container').on('click', 'tr.main-row td:not(:last-child)', function(){

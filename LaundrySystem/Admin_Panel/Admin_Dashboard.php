@@ -96,9 +96,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </table>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_BusinessTable.js"></script>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="Script_BusinessTable.js"></script>
+
 
 <!-- Employee Request -->
 
@@ -124,9 +125,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </table>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_EmployeeTable.js"></script> 
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="Script_EmployeeTable.js"></script> 
+
  
 <!-- User/Client Request -->
 
@@ -151,10 +153,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </table>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_UserTable.js"></script> 
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="Script_UserTable.js"></script> 
 
+<!-- Registered Section -->
+
+<!-- Registered Business -->
 
 
 
