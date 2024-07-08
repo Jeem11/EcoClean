@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Business Employee Dashboard</title>
+    <title>Business Owner Dashboard</title>
 
     <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
 
@@ -19,8 +15,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-    <link rel="stylesheet" href="Edashboard.css" type="text/css" />
+    <link rel="stylesheet" href="OwnerPanel.css" type="text/css" />
   </head>
   <body>
     <section>
@@ -30,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <hr class="hr" />
         <ul class="nav">
           <li class="active">
-            <a href="#" id="section_requests"><i class="fa fa-user"></i> Customer</a>
+            <a href="#" id="section_post"><i class="fa fa-pencil"></i> Post</a>
           </li>
           <li>
             <a href="index.php"><i class="fa fa-power-off"></i> Quit</a>
@@ -59,19 +58,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <div class="clearfix"></div>
           </div>
 
+<!-- Request Section --> 
+
 <!-- Business Request -->
 
 <div class="request-div">
     <div class="rq_business">
         <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
-        <button id='business'>Client Request</button>
-        <button id='user'>Client Laundry Status</button>
+        <button id='b_posting'>Posting</button>
+        <button id='b_timeline'>Timeline</button>
         <div class="table_border">
             <table id="rqbusiness_container">
                 <thead>
                     <tr>
-                        <th>Customer Name</th>
+                        <th>Laundry Shop Name</th>
+                        <th>Owner</th>
                         <th>Address</th>
+                        <th>Request Date</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -85,27 +88,52 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="Script_BusinessTable.js"></script>
 
-<div class="clearfix"></div>
-</section>
-      
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="Script_Admin.js"></script>
-<script>
-  $(document).ready(function () {
-    $(".profile p").click(function () {
-      $(".profile-div").toggle();
-    });
-    $(".noti-icon").click(function () {
-      $(".notification-div").toggle();
-    });
-  });
-</script>
-<script type="text/javascript">
-  $("li").click(function () {
-    $("li").removeClass("active");
-    $(this).addClass("active");
-  });
-</script>
+<!-- Employee Request -->
 
-</body>
+<div class="requestemp-div">
+    <div class="rq_employee">
+        <link rel="stylesheet" href="rqemployee_style.css" type="text/css">
+        <button id='e_posting'>Posting</button>
+        <button id='e_timeline'>Timeline</button>
+        <div class="table_border">
+            <table id="rqemployee_container">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_rqemployee.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="Script_EmployeeTable.js"></script> 
+
+      <div class="clearfix"></div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Script_Admin.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".profile p").click(function () {
+          $(".profile-div").toggle();
+        });
+        $(".noti-icon").click(function () {
+          $(".notification-div").toggle();
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $("li").click(function () {
+        $("li").removeClass("active");
+        $(this).addClass("active");
+      });
+    </script>
+
+  </body>
 </html>
