@@ -43,7 +43,7 @@ if ($conn->connect_error) {
                     $status = $_POST['status'];
                     $customer_id = $_POST['customer_id'];
 
-                    $sql = "UPDATE customer_status SET laundry_status = '$status' WHERE id = $customer_id";
+                    $sql = "UPDATE user_info SET laundry_status = '$status' WHERE user_ID = $customer_id";
 
                     if ($conn->query($sql) === TRUE) {
                         echo "<script>alert('Status updated successfully');</script>";
@@ -53,17 +53,17 @@ if ($conn->connect_error) {
                 }
 
                 // SQL query to fetch data
-                $sql_select = "SELECT id, customer_name, laundry_status FROM customer_status";
+                $sql_select = "SELECT user_ID, user_name, laundry_status FROM user_info";
                 $result = $conn->query($sql_select);
 
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td>" . $row["customer_name"]. "</td>
+                                <td>" . $row["user_name"]. "</td>
                                 <td class='status-cell'>
                                     <form method='post' class='status-form'>
-                                        <input type='hidden' name='customer_id' value='" . $row["id"] . "'>
+                                        <input type='hidden' name='customer_id' value='" . $row["user_ID"] . "'>
                                         <input type='hidden' class='status-input' name='status' value='" . $row["laundry_status"] . "'>
                                         <div class='dropdown'>
                                             <span class='dropdown-btn'>" . $row["laundry_status"] . "</span>

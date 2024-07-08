@@ -4,7 +4,7 @@ $login_error = '';
 
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost:3307";
+    $servername = "localhost:3306";
     $username = "root";
     $password = "ccis";
     $dbname = "dba_laundry";
