@@ -80,7 +80,7 @@ if ($result->num_rows > 0){
 
     echo "</tbody>";
 } else {
-    echo "<tbody><tr><td colspan='5'>There are no Business Requests</td></tr></tbody>";
+    echo "<tbody><tr><td colspan='5'>There are no Employee Requests</td></tr></tbody>";
 }
 
 $conn->close();

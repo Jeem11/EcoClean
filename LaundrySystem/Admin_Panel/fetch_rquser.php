@@ -51,23 +51,27 @@ if ($result->num_rows > 0){
 
     }
     echo "</tbody>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+} else {
+    echo "<tbody><tr><td colspan='5'>There are no User Requests</td></tr></tbody>";
 }
+
+$conn->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
