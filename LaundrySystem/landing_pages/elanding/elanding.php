@@ -1,5 +1,11 @@
 <?php
-include 'header.php';
+session_start();
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $servername = "localhost";
 $username = "root";
@@ -16,7 +22,6 @@ if ($conn->connect_error) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +31,6 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="elanding.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
 
     <div class="content">
         <h1>Customer Status</h1>
