@@ -19,8 +19,8 @@ if($result->num_rows > 0){
                 <td>{$row['rqbs_name']}</td>
                 <td>{$row['rqbs_owner']}</td>
                 <td>{$row['address']}</td>
-                <td>
-                    <select class='status-select'>
+                <td class='status-cell'>
+                    <select class='status-select' data-original-value='{$row['rqbs_status']}'>
                         <option value='Pending' " . ($row['rqbs_status'] === 'Pending' ? 'selected' : '') . ">Pending</option>
                         <option value='Approved' " . ($row['rqbs_status'] === 'Approved' ? 'selected' : '') . ">Approved</option>
                         <option value='Rejected' " . ($row['rqbs_status'] === 'Rejected' ? 'selected' : '') . ">Rejected</option>

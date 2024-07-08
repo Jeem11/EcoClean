@@ -33,11 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             <br>
                             <label>Profile</label>
                             <br>
-                            <div class="custom-file-input">
                                 <input type="file" name="Owner_File" id="F_Owner" accept="image/*" class="file-input">
-                                <img src="Profile.png" alt="Upload Icon" id="uploadImage" class="upload-icon">
-                                <img src="" alt="Profile Preview" id="profilePreview" style="display:none;">
-                            </div>
                             <br>
                             <label>Business Address</label>
                             <br>
@@ -93,11 +89,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             <br>
                             <label>Business Logo </label>
                             <br><br>
-                            <div class="custom-file-input">
                                 <input type="file" name="B_logo" id="B_pic" accept="image/*" class="file-input">
-                                <img src="File_UL.jpg" alt="Upload Icon" id="uploadFile" class="upload-icon">
-                                <img src="" alt="Profile Preview" id="LogoPreview" style="display:none;">
-                            </div>
                             <br>
                             <p class="tag">Account Info</p>
                             <label>UserName/Email </label>
@@ -135,6 +127,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </div>
                 </div>
             </div>
+            
         </form>
         <script src="Script_BusinessRegistration.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

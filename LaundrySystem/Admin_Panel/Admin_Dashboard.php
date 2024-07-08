@@ -69,7 +69,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           </div>
 
 
-<!-- Request Section -->     
+<!-- Request Section --> 
+<img src="get_logo.php?id=14" alt="Business Logo">
+
+<!-- Business Request -->
 
 <div class="request-div">
     <div class="rq_business">
@@ -97,6 +100,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="Script_BusinessTable.js"></script>
 
+<!-- Employee Request -->
+ <!--
+<div class="requestemp-div">
+    <div class="rq_employee">
+        <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
+        <button id='business'>Business</button>
+        <button id='employee'>Employee</button>
+        <button id='user'>User/Client</button>
+        <div class="table_border">
+            <table id="rqemployee_container">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Affiliated Shop</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     Table rows will be populated here by fetch_rqemployee.php 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="Script_EmployeeTable.js"></script> -->
  
 
 

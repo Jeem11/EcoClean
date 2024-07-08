@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const Owner_mname = document.getElementById('mname');
     //Profile
     const Owner_pic = document.getElementById('F_Owner');
-    const profileIcon = document.getElementById('uploadImage');
-    const profilePreview = document.getElementById('profilePreview');
+
     //Business Address
     const Shop_Add = document.querySelector('[name="business_add"]');
     //Business Address City/Municipal Select
@@ -43,8 +42,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const TIN_File = document.getElementById('F_TIN');
     //Business Logo
     const B_logo = document.getElementById('B_pic');
-    const LogoIcon = document.getElementById('uploadFile');
-    const LogoPreview = document.getElementById('LogoPreview');
     //Condition + Signature + Date
     const Agreement = document.getElementById('agreement');
     const Owner_Sign = document.getElementById('b_sign');
@@ -106,32 +103,6 @@ document.addEventListener('DOMContentLoaded', function(){
         return validTypes.includes(file.type);
     }
     
-    function displayProfilePicture(input, imgElement) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                imgElement.src = e.target.result;
-                imgElement.style.display = 'block';
-                profileIcon.style.display = 'none';
-                
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    function displayLogoPicture(input, imgElement) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                imgElement.src = e.target.result;
-                imgElement.style.display = 'block';
-                LogoIcon.style.display = 'none';
-                
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
     function setRegistrationDate() {
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -150,29 +121,22 @@ document.addEventListener('DOMContentLoaded', function(){
     
     
     //Event Listeners
-    profileIcon.addEventListener('click', function() {
-        Owner_pic.click();
-    });
-    
     Owner_pic.addEventListener('change', function() {
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (validateFileType(file, validImageTypes)) {
-            displayProfilePicture(this, profilePreview);
+            console.log('Accepted Profile');
         } else {
             alert('Invalid file type. Please select a JPEG, PNG, or GIF image.');
         }
     });
     
-    LogoIcon.addEventListener('click', function() {
-        B_logo.click();
-    });
     
     B_logo.addEventListener('change', function() {
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (validateFileType(file, validImageTypes)) {
-            displayLogoPicture(this, LogoPreview);
+            console.log('Accepted Logo');
         } else {
             alert('Invalid file type. Please select a JPEG, PNG, or GIF image.');
         }
@@ -270,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png'];
         if (validateFileType(file, validImageTypes)) {
-            displayProfilePicture(this, document.getElementById('profilePreview'));
+            console.log('Profile Accepted');
         } else {
             alert('Invalid file type. Please select a JPEG or PNG image.');
         }
@@ -280,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png'];
         if (validateFileType(file, validImageTypes)) {
-            displayLogoPicture(this, document.getElementById('LogoPreview'));
+            console.log('Logo Accepted');
         } else {
             alert('Invalid file type. Please select a JPEG or PNG image.');
         }
@@ -334,17 +298,17 @@ document.addEventListener('DOMContentLoaded', function(){
            }
            
            if(!Owner_pic.files || Owner_pic.files.length === 0) {
-                profileIcon.classList.add('invalid-input');
+            Owner_pic.classList.add('invalid-input');
            }else{
                 const file = Owner_pic.files[0];
                 if(!validateFileSize(file, 2)) {
-                    profileIcon.classList.add('invalid-input');
+                    Owner_pic.classList.add('invalid-input');
                     alert('Please enter a valid image file that is less than 2MB.');
                 }else if(!validateFileType(file, ['image/jpeg', 'image/png', 'image/gif'])) {
-                    profileIcon.classList.add('invalid-input');
+                    Owner_pic.classList.add('invalid-input');
                     alert('Please upload an image file of type: JPEG, PNG, GIF.');
                 }else{
-                    profileIcon.classList.remove('invalid-input');
+                    Owner_pic.classList.remove('invalid-input');
                 }
            }
            
@@ -403,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
                     if(valid){
-                        resetOutlineColor(ShopName, Owner_lname, Owner_fname, Owner_mname, profileIcon,
+                        resetOutlineColor(ShopName, Owner_lname, Owner_fname, Owner_mname, Owner_pic,
                             Shop_Add, Shop_Muni, Shop_Brgy, B_contact, B_email);
                         
                         
@@ -503,13 +467,13 @@ document.addEventListener('DOMContentLoaded', function(){
             } else {
                 const file = B_logo.files[0];
                 if (!validateFileSize(file, 2)) {
-                    LogoIcon.classList.add('invalid-input');
+                    B_logo.classList.add('invalid-input');
                     alert('Please enter a valid image file that is less than 2MB.');
                 } else if (!validateFileType(file, ['image/jpeg', 'image/png', 'image/gif'])) {
-                    LogoIcon.classList.add('invalid-input');
+                    B_logo.classList.add('invalid-input');
                     alert('Please upload an image file of type: JPEG, PNG, GIF.');
                 } else {
-                    LogoIcon.classList.remove('invalid-input');
+                    B_logo.classList.remove('invalid-input');
                 }
             }
             
@@ -562,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         //Final Condition to process to submit
         if(valid2){
-            resetOutlineColor(DTI_No, DTI_File, TIN_No, TIN_File, LogoIcon, Agreement,
+            resetOutlineColor(DTI_No, DTI_File, TIN_No, TIN_File, B_logo, Agreement,
             Owner_Sign, Sign_Date, Business_usernm, Business_userps, Business_secps);
             setRegistrationDate();
             const confirmation = confirm("Send Request?");
@@ -583,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         if(response.status === 'success'){
                             alert(response.message);
                             B_form.reset();
-                            window.location.href = 'business_Form.php'; //will change, this is just for the sake of testing
+                            //window.location.href = 'business_Form.php'; //will change, this is just for the sake of testing
                             const shopID = response.ShopID;
                             console.log('ShopID:', shopID);
                         }else{
