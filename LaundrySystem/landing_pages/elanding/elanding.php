@@ -1,4 +1,6 @@
 <?php
+include 'header.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "ccis";
