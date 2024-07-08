@@ -206,8 +206,7 @@ CREATE TABLE IF NOT EXISTS user_info (
     rg_date DATE NOT NULL,
     user_username VARCHAR(225) NOT NULL,
     user_userpass VARCHAR(225) NOT NULL,
-    rquser_status CHAR(15) DEFAULT 'Approved',
-    FOREIGN KEY (user_ID) REFERENCES request_userpic(rquserpic_ID) ON DELETE CASCADE
+    rquser_status CHAR(15) DEFAULT 'Approved'
 );
 
 -- Create Client/User Profile table

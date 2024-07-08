@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         xhttp.send();
     }
+
     function attachStatusChangeListeners() {
         var statusSelects = document.querySelectorAll('.status-useselect');
         console.log('Status selects found:', statusSelects.length);
@@ -37,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 var confirmationMessage = '';
 
                 if (newValue === 'Approved') {
-                    confirmationMessage = 'Are you sure you want to approve this business request?';
+                    confirmationMessage = 'Are you sure you want to approve this user request?';
                 } else if (newValue === 'Rejected') {
-                    confirmationMessage = 'Are you sure you want to reject this business request? This record will be dumped.';
+                    confirmationMessage = 'Are you sure you want to reject this user request? This record will be removed.';
                 } else {
                     confirmationMessage = 'Are you sure you want to change the status?';
                 }
@@ -70,10 +71,18 @@ document.addEventListener('DOMContentLoaded', function () {
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4) {
                 if (this.status === 200) {
-                    console.log('Status updated successfully');
-                    // If status is approved, show an additional alert about the email
-                    if (newValue === 'Approved') {
-                        alert('User has been notified.');
+                    var response = JSON.parse(this.responseText);
+                    if (response.success) {
+                        console.log('Status updated successfully');
+                        // If status is approved, show an additional alert about the email
+                        if (newValue === 'Approved') {
+                            alert('User has been notified.');
+                        }
+                    } else {
+                        console.error('Error updating status:', response.message);
+                        // Revert the select value if updating the status fails
+                        var selectElement = document.querySelector('tr[data-row-id="' + rowId + '"] .status-useselect');
+                        selectElement.value = initialValue;
                     }
                 } else {
                     console.error('Error updating status:', this.status);
