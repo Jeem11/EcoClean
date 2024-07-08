@@ -93,12 +93,12 @@ try{
         $fileExtension = pathinfo($original_name, PATHINFO_EXTENSION);
         $DTI_name = $shop . "_DTI." . $fileExtension;
 
-        $stmtDTI = $conn->prepare("INSERT INTO request_bsDTI(rqbsDTI_ID, rqbsDTI_name, mime, size, data) 
-        VALUES (?, ?, ?, ?, ?)");
+        $stmtDTI = $conn->prepare("INSERT INTO request_bsDTI(rqbsDTI_ID, rqbsDTI_name, rqbsDTI_No, mime, size, data) 
+        VALUES (?, ?, ?, ?, ?, ?)");
         if(!$stmtDTI){
             throw new Exception('Prepare failed for request_bsDTI: ' . $conn->error);
         }
-        $stmtDTI->bind_param("isssi", $rqbspic_ID, $DTI_name, $mime, $size, $data);
+        $stmtDTI->bind_param("issssi", $rqbspic_ID, $DTI_name, $DTI_no, $mime, $size, $data);
         if(!$stmtDTI->execute()){
             throw new Exception('Failed to insert into request_bsDTI: ' . $stmtDTI->error);
         }
@@ -116,12 +116,12 @@ try{
         $fileExtension = pathinfo($original_name, PATHINFO_EXTENSION);
         $TIN_name = $shop . "_TIN." . $fileExtension;
 
-        $stmtTIN = $conn->prepare("INSERT INTO request_bsTIN(rqbsTIN_ID, rqbsTIN_name, mime, size, data) 
-        VALUES (?, ?, ?, ?, ?)");
+        $stmtTIN = $conn->prepare("INSERT INTO request_bsTIN(rqbsTIN_ID, rqbsTIN_name, rqbsTIN_No, mime, size, data) 
+        VALUES (?, ?, ?, ?, ?, ?)");
         if(!$stmtTIN){
             throw new Exception('Prepare failed for request_bsTIN: ' . $conn->error);
         }
-        $stmtTIN->bind_param("isssi", $rqbspic_ID, $TIN_name, $mime, $size, $data);
+        $stmtTIN->bind_param("issssi", $rqbspic_ID, $TIN_name, $TIN_no, $mime, $size, $data);
         if(!$stmtTIN->execute()){
             throw new Exception('Failed to insert into request_bsTIN: ' . $stmtTIN->error);
         }
