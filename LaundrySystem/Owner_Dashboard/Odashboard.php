@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include 'headers.php';
 include 'DBLaundryConnect.php'; // Include your database connection file
 
 // Handle the form submission
