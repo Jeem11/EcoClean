@@ -34,7 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         // User exists, start session
         $_SESSION['username'] = $user_username;
-        header("Location: elanding.php"); // Redirect to employee interface
+        echo "<script>
+                alert('Login Successful!');
+                window.location.href = 'Admin_Dashboard.php';
+              </script>";
         exit();
     } else {
         // User does not exist or wrong credentials
@@ -73,7 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="button-group">
                 <button type="submit">Login</button>
-                <button type="button" onclick="window.location.href='employee_Form.php'">Sign Up</button>
             </div>
         </form>
         <?php if ($login_error): ?>
