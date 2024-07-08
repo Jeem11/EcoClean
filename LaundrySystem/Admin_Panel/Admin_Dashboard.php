@@ -128,6 +128,40 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="Script_EmployeeTable.js"></script> 
  
+<!-- User/Client Request -->
+
+<div class="requestuse-div">
+    <div class="rq_user">
+        <link rel="stylesheet" href="rquser_style.css" type="text/css">
+        <button id='u_business'>Business</button>
+        <button id='u_employee'>Employee</button>
+        <button id='u_user'>User/Client</button>
+        <div class="table_border">
+            <table id="rquser_container">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_rquser.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="Script_UserTable.js"></script> 
+
+
+
+
+
+
+
+
 
 
 
