@@ -65,7 +65,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
  
 
 
-/**Request Business 1 */
+/**Request Business */
   .request-div {
     position: relative;
     z-index: 1;
@@ -87,9 +87,78 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     }
   }
 
+/**Request Employee */
+ .requestemp-div{
+  position: relative;
+    z-index: 1;
+    width: 76%;
+    float: left;
+    min-height: 50vh; 
+    background: var(--white);
+    margin: 25px;
+    border-radius: 25px;
+    padding: 30px;
+    display: none;
+ }
+
+ @media (max-width: 768px) {
+  .requestemp-div {
+    width: 100%; 
+    margin: 0; 
+    border-radius: 0;
+  }
+}
   
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

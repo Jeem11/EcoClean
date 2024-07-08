@@ -76,9 +76,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <div class="request-div">
     <div class="rq_business">
         <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
-        <button id='business'>Business</button>
-        <button id='employee'>Employee</button>
-        <button id='user'>User/Client</button>
+        <button id='b_business'>Business</button>
+        <button id='b_employee'>Employee</button>
+        <button id='b_user'>User/Client</button>
         <div class="table_border">
             <table id="rqbusiness_container">
                 <thead>
@@ -104,10 +104,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
 <div class="requestemp-div">
     <div class="rq_employee">
-        <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
-        <button id='business'>Business</button>
-        <button id='employee'>Employee</button>
-        <button id='user'>User/Client</button>
+        <link rel="stylesheet" href="rqemployee_style.css" type="text/css">
+        <button id='e_business'>Business</button>
+        <button id='e_employee'>Employee</button>
+        <button id='e_user'>User/Client</button>
         <div class="table_border">
             <table id="rqemployee_container">
                 <thead>
