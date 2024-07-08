@@ -3,19 +3,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function fetchData() {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'fetch_rqemployee.php', true);
+        xhttp.open('GET', 'fetch_rquser.php', true);
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                document.querySelector('#rqemployee_container tbody').innerHTML = this.responseText;
+                document.querySelector('#rquser_container tbody').innerHTML = this.responseText;
                 attachStatusChangeListeners(); 
                 attachRowClickListeners(); 
             }
         };
         xhttp.send();
     }
-
     function attachStatusChangeListeners() {
-        var statusSelects = document.querySelectorAll('.status-empselect');
+        var statusSelects = document.querySelectorAll('.status-useselect');
         console.log('Status selects found:', statusSelects.length);
 
         statusSelects.forEach(function(select) {
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateStatus(rowId, newValue, initialValue) {
         // AJAX request to update the status
         var xhttp = new XMLHttpRequest();
-        xhttp.open('POST', 'update_empstatus.php', true);
+        xhttp.open('POST', 'update_userstatus.php', true);
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4) {
@@ -74,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Status updated successfully');
                     // If status is approved, show an additional alert about the email
                     if (newValue === 'Approved') {
-                        alert('Employee has been approved, request is been sent to the business owner for finalizing.');
+                        alert('User has been notified.');
                     }
                 } else {
                     console.error('Error updating status:', this.status);
                     // Revert the select value if updating the status fails
-                    var selectElement = document.querySelector('tr[data-row-id="' + rowId + '"] .status-empselect');
+                    var selectElement = document.querySelector('tr[data-row-id="' + rowId + '"] .status-useselect');
                     selectElement.value = initialValue;
                 }
             }
@@ -88,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function attachRowClickListeners() {
-        $('#rqemployee_container').on('click', 'tr.main-row', function(event){
+        $('#rquser_container').on('click', 'tr.main-row', function(event){
             // Check if the click is on the status select element
-            if (event.target.classList.contains('status-empselect')) {
+            if (event.target.classList.contains('status-useselect')) {
                 return; // Do nothing if clicking on the status select
             }
 

@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function(){
     var e_employeebtn = document.getElementById('e_employee');
     var e_userbtn = document.getElementById('e_user');
 
+    var u_businessbtn = document.getElementById('u_business');
+    var u_employeebtn = document.getElementById('u_employee');
+    var u_userbtn = document.getElementById('u_user');
+
     //Request Section
     var requestLink = document.getElementById('section_requests');
 
@@ -18,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function(){
     //Request Employee
     var requestEmpSec = document.querySelector('.requestemp-div');
     var requestEmp = document.querySelector('.rq_employee');
+
+    //Request User
+    var requestUserSec = document.querySelector('.requestuse-div');
+    var requestuser = document.querySelector('.rq_user');
 
     //Registered Section
     var registerLink = document.getElementById('section_registered');
@@ -40,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function(){
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
 
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
+
 
     })
 
@@ -49,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'block';
         requestEmp.style.display = 'block';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
                                                                             
     })
 
@@ -58,6 +72,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'block';
+        requestuser.style.display = 'block';
                                                                             
     })
 
@@ -69,6 +86,9 @@ document.addEventListener("DOMContentLoaded", function(){
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
 
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
+
 
     })
 
@@ -78,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'block';
         requestEmp.style.display = 'block';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
                                                                             
     })
 
@@ -87,6 +110,47 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'block';
+        requestuser.style.display = 'block';
+                                                                            
+    })
+
+//User button
+    u_businessbtn.addEventListener("click", function(){
+        requestDivSec.style.display = 'block';
+        requestDiv.style.display = 'block';
+
+        requestEmpSec.style.display = 'none';
+        requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
+
+
+    })
+
+    u_employeebtn.addEventListener("click", function(){
+        requestDivSec.style.display = 'none';
+        requestDiv.style.display = 'none';
+
+        requestEmpSec.style.display = 'block';
+        requestEmp.style.display = 'block';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
+                                                                            
+    })
+
+    u_userbtn.addEventListener("click", function(){
+        requestDivSec.style.display = 'none';
+        requestDiv.style.display = 'none';
+
+        requestEmpSec.style.display = 'none';
+        requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'block';
+        requestuser.style.display = 'block';
                                                                             
     })
 
@@ -100,6 +164,9 @@ document.addEventListener("DOMContentLoaded", function(){
         
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
 
 
 
@@ -118,12 +185,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
                                                                             
     })
 
 
 //Subscription/Payment
-    section_payment.addEventListener("click", function(event){
+    paymentLink.addEventListener("click", function(event){
         event.preventDefault();
 
         requestDivSec.style.display = 'none';
@@ -131,6 +201,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestEmpSec.style.display = 'none';
         requestEmp.style.display = 'none';
+
+        requestUserSec.style.display = 'none';
+        requestuser.style.display = 'none';
                                                                             
 
     })
