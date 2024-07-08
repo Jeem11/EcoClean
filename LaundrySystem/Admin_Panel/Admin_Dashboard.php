@@ -70,7 +70,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
 
 <!-- Request Section --> 
-<img src="get_logo.php?id=14" alt="Business Logo">
 
 <!-- Business Request -->
 
@@ -87,6 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         <th>Laundry Shop Name</th>
                         <th>Owner</th>
                         <th>Address</th>
+                        <th>Request Date</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -101,7 +101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <script src="Script_BusinessTable.js"></script>
 
 <!-- Employee Request -->
- <!--
+
 <div class="requestemp-div">
     <div class="rq_employee">
         <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
@@ -119,14 +119,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </tr>
                 </thead>
                 <tbody>
-                     Table rows will be populated here by fetch_rqemployee.php 
+                     <!-- Table rows will be populated here by fetch_rqemployee.php -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="Script_EmployeeTable.js"></script> -->
+<script src="Script_EmployeeTable.js"></script> 
  
 
 
