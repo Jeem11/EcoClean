@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const Employee_info = document.getElementById('Section1');
     //Profile
     const Employee_pic = document.getElementById('F_Employee');
-    const profileIcon = document.getElementById('uploadImage');
-    const profilePreview = document.getElementById('profilePreview');
     //Employee Name:
     const Employee_lname = document.getElementById('lname');
     const Employee_fname = document.getElementById('fname');
@@ -109,19 +107,6 @@ document.addEventListener('DOMContentLoaded', function(){
         return validTypes.includes(file.type);
     }
     
-    function displayProfilePicture(input, imgElement) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                imgElement.src = e.target.result;
-                imgElement.style.display = 'block';
-                profileIcon.style.display = 'none';
-                
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
     function setRegistrationDate() {
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -202,13 +187,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     
     //Event Listeners
-    profileIcon.addEventListener('click', function() {
-        Employee_pic.click();
-    });
-
-    Employee_pic.addEventListener('change', function() {
-        displayProfilePicture(this, profilePreview);
-    });
     
     Emp_Sign.addEventListener('change', function() {
         const file = this.files[0];
@@ -307,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const file = this.files[0];
         const validImageTypes = ['image/jpeg', 'image/png'];
         if (validateFileType(file, validImageTypes)) {
-            displayProfilePicture(this, document.getElementById('profilePreview'));
+            console.log('Profile Accepted');
         } else {
             alert('Invalid file type. Please select a JPEG or PNG image.');
         }
@@ -349,17 +327,17 @@ document.addEventListener('DOMContentLoaded', function(){
             alert('Please complete the required fields with correct credentials.');
             
             if(!Employee_pic.files || Employee_pic.files.length === 0) {
-                profileIcon.classList.add('invalid-input');
+                Employee_pic.classList.add('invalid-input');
             }else{
                 const file = Employee_pic.files[0];
                 if(!validateFileSize(file, 2)) {
-                    profileIcon.classList.add('invalid-input');
+                    Employee_pic.classList.add('invalid-input');
                     alert('Please enter a valid image file that is less than 2MB.');
                 }else if(!validateFileType(file, ['image/jpeg', 'image/png', 'image/gif'])) {
-                    profileIcon.classList.add('invalid-input');
+                    Employee_pic.classList.add('invalid-input');
                     alert('Please upload an image file of type: JPEG, PNG, GIF.');
                 }else{
-                    profileIcon.classList.remove('invalid-input');
+                    Employee_pic.classList.remove('invalid-input');
                 }
             }
             
@@ -510,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
             
         }else if(age < 18){
-            resetOutlineColor(Employee_pic, profileIcon, Employee_lname, Employee_fname,
+            resetOutlineColor(Employee_pic, Employee_pic, Employee_lname, Employee_fname,
             Employee_mname, E_contact, E_email, Emp_Add, Emp_Muni,
             Emp_Brgy, Job_shop, SSS_No, SSS_File, PhilH_No, PhilH_File, PIbig_No, PIbig_File,
             Agreement, Emp_Sign);
@@ -569,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     }
 
                     if(valid){
-                        resetOutlineColor(Employee_pic, profileIcon, Employee_lname, Employee_fname,
+                        resetOutlineColor(Employee_pic, Employee_pic, Employee_lname, Employee_fname,
                         Employee_mname, Employee_bday, E_contact, E_email, Emp_Add, Emp_Muni,
                         Emp_Brgy, Job_shop, SSS_No, SSS_File, PhilH_No, PhilH_File, PIbig_No, PIbig_File,
                         Agreement, Emp_Sign);
