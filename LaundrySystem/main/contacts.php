@@ -1,3 +1,6 @@
+<?php
+include 'headers.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,6 @@
     <title>Contact Us - EcoClean</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
     
     <!-- Contact Information -->
     <main class="container">
@@ -16,11 +18,11 @@
         <ul class="contact-list">
             <li>
                 <i class='bx bxs-envelope'></i>
-                <span>Email: info@ecoclean.com</span>
+                <span>Email: ecoclean@gmail.com</span>
             </li>
             <li>
                 <i class='bx bxs-phone'></i>
-                <span>Phone: +1 123 456 7890</span>
+                <span>Phone: +0991 828 3739 </span>
             </li>
             <li>
                 <i class='bx bxl-facebook'></i>

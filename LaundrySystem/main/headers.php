@@ -22,7 +22,7 @@
             <label for="menu"><i class='bx bx-menu' id="menu-icon"></i></label>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="elanding.php">Home</a></li>
+                    <li><a href="Main_Interface.php">Home</a></li>
                     <li><a href="aboutUs.php">About Us</a></li>
                     <li><a href="contacts.php">Contacts</a></li>
                 </ul>

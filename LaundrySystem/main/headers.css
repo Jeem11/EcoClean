@@ -16,7 +16,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; /* Adjusted padding */
+    padding: 10px 30px; /* Adjusted padding */
     box-sizing: border-box;
     position: fixed; /* Fixed positioning */
     top: 0; /* Position at the top of the viewport */

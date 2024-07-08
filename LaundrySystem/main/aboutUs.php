@@ -1,3 +1,6 @@
+<?php
+include 'headers.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,6 @@
     <title>About Us - EcoClean</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
     
     <!-- About Us Content -->
     <main class="container">
