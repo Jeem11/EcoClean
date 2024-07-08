@@ -22,11 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                             <p class ="tag">Personal Information:</p>
                             <label>Profile </label>
                             <br><br>
-                            <div class="custom-file-input">
                                 <input type="file" name="Employee_File" id="F_Employee" accept="image/*">
-                                <img src="Profile.png" alt="Upload Icon" id="uploadImage">
-                                <img src="" alt="Profile Preview" id="profilePreview" style="display:none;">
-                            </div>
                             <br>
                             <label>Name </label>
                             <br>

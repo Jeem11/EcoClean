@@ -71,14 +71,16 @@ try {
         if (!$stmtSSS) {
             throw new Exception('Prepare failed for request_empsss: ' . $conn->error);
         }
-        $stmtSSS->bind_param("issssi", $rqemppic_ID, $SSS_name, $SSS_no, $mime, $size, $data);
+        $stmtSSS->bind_param("isssib", $rqemppic_ID, $SSS_name, $SSS_no, $mime, $size, $data);
+        $stmtSSS->send_long_data(5, $data);
         if (!$stmtSSS->execute()) {
             throw new Exception('Failed to insert into request_empsss: ' . $stmtSSS->error);
         }
         $stmtSSS->close();
     } else {
-        error_log("SSS_File is not set or has an error.");
+        error_log("SSS_File is not set or has an error");
     }
+
 
     // Insert PhilHealth File
     if ($PHealth_no !== '') {
@@ -89,16 +91,18 @@ try {
             $data = file_get_contents($_FILES['PHealth_File']['tmp_name']);
             $fileExtension = pathinfo($original_name, PATHINFO_EXTENSION);
             $PHealth_name = $Employee . "_PHealth." . $fileExtension;
-
+    
             $stmtPhil = $conn->prepare("INSERT INTO request_empphil (rqempPhil_ID, rqempPhil_name, rqempPhil_no, mime, size, data) VALUES (?, ?, ?, ?, ?, ?)");
             if (!$stmtPhil) {
                 throw new Exception('Prepare failed for request_empphil: ' . $conn->error);
             }
-            $stmtPhil->bind_param("issssi", $rqemppic_ID, $PHealth_name, $PHealth_no, $mime, $size, $data);
+            $stmtPhil->bind_param("isssib", $rqemppic_ID, $PHealth_name, $PHealth_no, $mime, $size, $data);
+            $stmtPhil->send_long_data(5, $data);
             if (!$stmtPhil->execute()) {
-                throw new Exception('Failed to insert into request_empphil: ' . $stmtPhil->error);
+                throw new Exception('Failed to insert into request_bsDTI: ' . $stmtPhil->error);
             }
             $stmtPhil->close();
+        
         } else {
             error_log("PHealth_File is not set or has an error.");
         }
@@ -113,12 +117,13 @@ try {
             $data = file_get_contents($_FILES['PIbig_File']['tmp_name']);
             $fileExtension = pathinfo($original_name, PATHINFO_EXTENSION);
             $PIbig_name = $Employee . "_PIbig." . $fileExtension;
-
+    
             $stmtPB = $conn->prepare("INSERT INTO request_emppb (rqempPB_ID, rqempPB_name, rqempPB_no, mime, size, data) VALUES (?, ?, ?, ?, ?, ?)");
             if (!$stmtPB) {
                 throw new Exception('Prepare failed for request_emppb: ' . $conn->error);
             }
-            $stmtPB->bind_param("issssi", $rqemppic_ID, $PIbig_name, $PIbig_no, $mime, $size, $data);
+            $stmtPB->bind_param("isssib", $rqemppic_ID, $PIbig_name, $PIbig_no, $mime, $size, $data);
+            $stmtPB->send_long_data(5, $data);
             if (!$stmtPB->execute()) {
                 throw new Exception('Failed to insert into request_emppb: ' . $stmtPB->error);
             }
