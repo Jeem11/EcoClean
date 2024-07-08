@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    position: relative; /* Make sure the body can be the relative parent for the pseudo-element */
+    position: relative;
     overflow: hidden;
 }
 
@@ -18,11 +18,11 @@ body::before {
     right: 0;
     bottom: 0;
     background: url("laundryBG.png");
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    opacity: 0.9; /* Adjust opacity for the image */
-    z-index: -2; /* Place it behind the gradient */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: -2;
 }
 
 body::after {
@@ -33,7 +33,7 @@ body::after {
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, rgba(25, 25, 112, 0.7), rgba(10, 150, 255, 0.7), rgba(240, 255, 255, 0.7));
-    z-index: -1; /* Place it behind the content */
+    z-index: -1;
 }
 
 header {
@@ -48,14 +48,14 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2rem; /* Adjust font size for responsiveness */
+    font-size: 2rem;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     flex-grow: 1;
 }
 
 header .logo {
-    height: 100px; /* Adjust the size as needed */
+    height: 100px;
     margin-right: 20px;
 }
 
@@ -75,7 +75,7 @@ header .logo {
 .login-container h2 {
     margin-bottom: 20px;
     color: black;
-    font-size: 2.5rem; /* Adjust font size for responsiveness */
+    font-size: 2.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -88,7 +88,7 @@ header .logo {
     display: block;
     margin-bottom: 5px;
     color: black;
-    font-size: 1.25rem; /* Adjust font size for responsiveness */
+    font-size: 1.25rem;
 }
 
 .input-group input {
@@ -99,6 +99,12 @@ header .logo {
     border-radius: 10px;
 }
 
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 button {
     background-color: rgb(135, 206, 235);
     color: black;
@@ -106,8 +112,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    font-size: 1rem; /* Adjust font size for responsiveness */
+    flex: 1;
+    font-size: 1rem;
 }
 
 button:hover {
@@ -115,7 +121,6 @@ button:hover {
     color: white;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;

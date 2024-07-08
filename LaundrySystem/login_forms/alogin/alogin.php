@@ -71,8 +71,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="button-group">
+                <button type="submit">Login</button>
+                <button type="button" onclick="window.location.href='employee_Form.php'">Sign Up</button>
+            </div>
         </form>
+        <?php if ($login_error): ?>
+            <p style="color: red;"><?php echo $login_error; ?></p>
+        <?php endif; ?>
     </div>
 </body>
 </html>
