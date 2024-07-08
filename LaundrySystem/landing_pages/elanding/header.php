@@ -21,8 +21,8 @@
             <label for="menu"><i class='bx bx-menu' id="menu-icon"></i></label>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="elanding.php">Home</a></li>
+                    <li><a href="aboutUs.php">About Us</a></li>
                     <li><a href="#">Contacts</a></li>
                 </ul>
             </nav>
