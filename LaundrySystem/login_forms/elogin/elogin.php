@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         // User exists, start session
         $_SESSION['username'] = $user_username;
-        header("Location: elanding.php"); // Redirect to employee interface
+        header("Location: elanding.php");
         exit();
     } else {
         // User does not exist or wrong credentials
@@ -46,8 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
