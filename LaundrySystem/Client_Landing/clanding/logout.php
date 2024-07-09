@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-// header("Location: elogin.php");
+header("Location: clogin.php");
 exit();
 ?>

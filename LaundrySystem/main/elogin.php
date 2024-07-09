@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         // User exists, start session
         $_SESSION['username'] = $user_username;
-        echo "<script>alert('Login Successful!'); window.location.href='elanding.php';</script>";
+        echo "<script>alert('Login Successful!'); window.location.href='Edashboard.php';</script>";
         exit();
     } else {
         // User does not exist or wrong credentials
