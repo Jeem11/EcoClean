@@ -22,7 +22,7 @@ include 'headers.php';
             </li>
             <li>
                 <i class='bx bxs-phone'></i>
-                <span>Phone: +0991 828 3739 </span>
+                <span>Phone: 0991 828 3739 </span>
             </li>
             <li>
                 <i class='bx bxl-facebook'></i>
