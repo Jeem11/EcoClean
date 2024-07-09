@@ -174,7 +174,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         <th>Owner</th>
                         <th>Address</th>
                         <th>Registered Date</th>
-                        <th>End of Subscription</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -197,8 +196,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <div class="penpay-div">
     <div class="pendingpay">
         <link rel="stylesheet" href="penpay_style.css" type="text/css">
-        <button id='p_unpaid'>Unpaid</button>
-        <button id='p_paid'>Paid</button>
+        <button id='up_unpaid'>Unpaid</button>
+        <button id='up_paid'>Paid</button>
         <div class="table_border">
             <table id="penpay_container">
                 <thead>
@@ -221,7 +220,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <script src="Script_Penpay.js"></script> 
 </div>
 
-
+<!-- Paid Section -->
+<div class="paid-div">
+    <div class="donepay">
+        <link rel="stylesheet" href="paid_style.css" type="text/css">
+        <button id='p_unpaid'>Unpaid</button>
+        <button id='p_paid'>Paid</button>
+        <div class="table_border">
+            <table id="paid_container">
+                <thead>
+                    <tr>
+                    <th>Laundry Shop Name</th>
+                        <th>Owner</th>
+                        <th>Address</th>
+                        <th>Payment Date</th>
+                        <th>Subscription</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_penpay.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_Paid.js"></script> 
+</div>
 
 
 

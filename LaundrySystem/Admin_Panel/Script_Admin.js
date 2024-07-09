@@ -15,8 +15,11 @@ document.addEventListener("DOMContentLoaded", function(){
     var bb_businessbtn = document.getElementById('bb_business');
     var bb_userbtn = document.getElementById('bb_user');
 
-    var unpaid = document.getElementById('p_unpaid');
-    var paid = document.getElementById('p_paid');
+    var unpaid = document.getElementById('up_unpaid');
+    var paid = document.getElementById('up_paid');
+
+    var notpaid = document.getElementById('p_unpaid');
+    var ypaid = document.getElementById('p_paid');   
 
     //Request Section
     var requestLink = document.getElementById('section_requests');
@@ -47,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function(){
     var  PendingSec = document.querySelector('.penpay-div');
     var pending = document.querySelector('.pendingpay');
 
+    //Paid
+    var paidSec = document.querySelector('.paid-div');
+    var apaid = document.querySelector('.donepay');
+
 
 //Event Listeners
 //-------------------------------------------------------------------------------
@@ -71,6 +78,9 @@ document.addEventListener("DOMContentLoaded", function(){
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
 
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
+
 
     })
 
@@ -89,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -107,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -127,6 +143,9 @@ document.addEventListener("DOMContentLoaded", function(){
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
 
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
+
 
     })
 
@@ -145,6 +164,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -163,6 +185,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -183,6 +208,9 @@ document.addEventListener("DOMContentLoaded", function(){
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
 
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
+
 
     })
 
@@ -201,6 +229,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -219,6 +250,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -242,6 +276,9 @@ bb_businessbtn.addEventListener("click", function(){
     PendingSec.style.display = 'none';
     pending.style.display = 'none';
 
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
+
 
 })
 
@@ -260,6 +297,9 @@ bb_userbtn.addEventListener("click", function(){
 
     PendingSec.style.display = 'none';
     pending.style.display = 'none';
+
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
                                                                         
 })
 
@@ -280,6 +320,9 @@ unpaid.addEventListener("click", function(){
     PendingSec.style.display = 'block';
     pending.style.display = 'block';
 
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
+
 
 })
 
@@ -298,6 +341,52 @@ paid.addEventListener("click", function(){
 
     PendingSec.style.display = 'none';
     pending.style.display = 'none';
+
+    paidSec.style.display = 'block';
+    apaid.style.display = 'block';
+
+
+})
+
+notpaid.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
+                                                                        
+})
+
+ypaid.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
                                                                         
 })
 
@@ -320,6 +409,9 @@ paid.addEventListener("click", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
 
 
 
@@ -347,6 +439,9 @@ paid.addEventListener("click", function(){
 
         PendingSec.style.display = 'none';
         pending.style.display = 'none';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
     })
 
@@ -369,6 +464,9 @@ paid.addEventListener("click", function(){
 
         PendingSec.style.display = 'block';
         pending.style.display = 'block';
+
+        paidSec.style.display = 'none';
+        apaid.style.display = 'none';
                                                                             
 
     })

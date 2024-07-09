@@ -405,6 +405,7 @@ CREATE TABLE IF NOT EXISTS rejected_account(
 
 
 
+
 //Triggers
 
 DELIMITER $$
