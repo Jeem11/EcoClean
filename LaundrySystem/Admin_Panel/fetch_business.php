@@ -9,7 +9,7 @@ $query = "SELECT a.bs_ID, bs_name, bs_owner, CONCAT(bs_city, ', ', bs_brgy) AS a
 FROM laundry_shops a
 LEFT JOIN businessDTI_File ON a.bs_ID = bsDTI_ID 
 LEFT JOIN businessTIN_File ON a.bs_ID = bsTIN_ID
-WHERE bs_status = 'Paid'";
+WHERE bs_status = 'Approved'";
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
@@ -37,17 +37,7 @@ if ($result->num_rows > 0) {
                 <td>{$row['bs_owner']}</td>
                 <td>{$row['address']}</td>
                 <td>{$row['bs_regdate']}</td>
-                <td>
-             <button class='addYearBtn' data-memberid='{$row['MemberID']}' data-MemberName='{$row['MemberName']}' data-currentdate='{$row['Activation_til']}' title='Extend Activation Year for {$row['MemberName']} ({$row['MemberID']})'>
-             {$row['Activation_til']}
-             </button>
-                <td class='status-cell'>
-                    <select class='status-select' data-original-value='{$row['bs_status']}'>
-                        <option value='Pending' " . ($row['bs_status'] === 'Pending' ? 'selected' : '') . ">Pending</option>
-                        <option value='Approved' " . ($row['bs_status'] === 'Approved' ? 'selected' : '') . ">Approved</option>
-                        <option value='Rejected' " . ($row['bs_status'] === 'Rejected' ? 'selected' : '') . ">Rejected</option>
-                    </select>
-                </td>
+                <td>{$row['bs_status']}'</td>
             </tr>";
 
         // Display hidden rows for contact, email, DTI, and TIN with buttons
@@ -55,8 +45,8 @@ if ($result->num_rows > 0) {
                 <td><img src='{$logo_src}' alt='Logo' style='width: 50px; height: 50px;'></td>
                 <td><strong>Contact:</strong> {$row['bs_contact']}</td>
                 <td><strong>Email:</strong> {$row['bs_email']}</td>
-                <td><strong>DTI No:</strong> <button onclick=\"window.open('get_DTI.php?bs_ID={$row['bs_ID']}')\">{$row['bsDTI_No']}</button></td>
-                <td><strong>TIN No:</strong> <button onclick=\"window.open('get_TIN.php?bs_ID={$row['bs_ID']}')\">{$row['bsTIN_No']}</button></td>
+                <td><strong>DTI No:</strong> <button onclick=\"window.open('get_FDTI.php?bs_ID={$row['bs_ID']}')\">{$row['bsDTI_No']}</button></td>
+                <td><strong>TIN No:</strong> <button onclick=\"window.open('get_FTIN.php?bs_ID={$row['bs_ID']}')\">{$row['bsTIN_No']}</button></td>
             </tr>";
 
     }
