@@ -1,6 +1,7 @@
 <?php
 include 'headers.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +14,9 @@ include 'headers.php';
     <header>
         <div class="profile">
             <img src="customer.png" alt="Customer Profile" class="profile-pic">
-            <span class="customer-name">Princess Agban</span>
         </div>
         <img src="logo.png" alt="EcoClean Logo" class="logo">
         <h1>Welcome to EcoClean: Your Partner in Perfect Laundry!</h1>
-        <a href="logout.php" class="btn logout-btn">Logout</a>
     </header>
     <main>
         <section class="intro">
