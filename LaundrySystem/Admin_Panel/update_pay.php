@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 FROM pending_payment a 
                 JOIN laundry_shops c ON a.bs_ID = c.bs_ID 
                 JOIN proof_payment b ON c.bs_name = b.bs_name 
-                WHERE a.bs_ID = ?");
-            $paid->bind_param('i', $rowId);
+                WHERE a.bs_ID = ? AND a.bs_ID = ?
+                LIMIT 1");
+            $paid->bind_param('ii', $rowId, $rowId);
             $paid->execute();
 
             if ($paid->affected_rows === 0) {
