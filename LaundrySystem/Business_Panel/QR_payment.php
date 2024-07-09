@@ -4,7 +4,6 @@ include 'DBLaundryConnect.php';
 
 if (isset($_GET['plan'])) {
     $plan = $_GET['plan'];
-    $_SESSION['plan'] = $plan;
     
     // Prepare the SQL statement to fetch the QR code
     $stmt = $conn->prepare("SELECT mime, data FROM subscription WHERE sub_cdname = ?");

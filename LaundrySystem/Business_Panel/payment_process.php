@@ -53,11 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 FROM subscription a
                 LEFT JOIN payment b 
                 ON a.sub_ID = b.sub_ID AND b.bs_ID = ?
-                WHERE a.sub_cdname = ?");
+                WHERE a.sub_cdname = ? AND a.sub_cdname = ?
+                LIMIT 1 ");
             if (!$stmt) {
                 throw new Exception('Prepare failed for pending_payment: ' . $conn->error);
             }
-            $stmt->bind_param("isi", $bs_ID, $bs_ID, $plan);
+            $stmt->bind_param("isis", $bs_ID, $bs_ID, $plan, $plan);
             if (!$stmt->execute()) {
                 throw new Exception('Failed to insert into pending_payment: ' . $stmt->error);
             }
@@ -88,4 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 
 // Send JSON response
-echo json_encode($response);
+
+
+if ($response['status'] === 'success') {
+    echo '<script>';
+    echo 'alert("Payment and proof of payment uploaded successfully.");';
+    echo 'window.location.href = "ologin.php";';
+    echo '</script>';
+    exit; // Ensure script stops executing further
+}

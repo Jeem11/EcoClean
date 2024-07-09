@@ -3,11 +3,11 @@
 session_start();
 
 // Check if bs_ID, bs_name, and plan are set in session
-if (isset($_SESSION['bs_ID'], $_SESSION['bs_name'], $_SESSION['plan'])) {
+if (isset($_SESSION['bs_ID'], $_SESSION['bs_name'], $_GET['plan'])) {
     // Retrieve bs_ID, bs_name, and plan from session
     $bs_ID = $_SESSION['bs_ID'];
     $bs_name = $_SESSION['bs_name'];
-    $plan = $_SESSION['plan'];
+    $plan = $_GET['plan'];
 
     // Log bs_ID, bs_name, and plan to console (optional for debugging)
     echo "<script>";
@@ -40,9 +40,8 @@ if (isset($_SESSION['bs_ID'], $_SESSION['bs_name'], $_SESSION['plan'])) {
                 <img src="GCash-Logo.png" alt="GCash Logo" class="logo">
                 <div class="qr">
                     <?php
-                    if (isset($_GET['plan'])) {
-                        $plan = htmlspecialchars($_GET['plan']);
-                        echo '<img src="QR_payment.php?plan=' . $plan . '" alt="QR Code">';
+                    if (isset($plan)) {
+                        echo '<img src="QR_payment.php?plan=' . htmlspecialchars($plan) . '" alt="QR Code">';
                     } else {
                         echo '<p>No plan selected.</p>';
                     }
@@ -57,7 +56,7 @@ if (isset($_SESSION['bs_ID'], $_SESSION['bs_name'], $_SESSION['plan'])) {
                 </div>
             </div>
             <div class="btn-group">
-                <button type="button" class="pay-btn back-btn">Back</button>
+                <button type="button" class="pay-btn back-btn" onclick="window.location.href = 'ologin.php';">Back</button>
                 <button type="submit" class="pay-btn sub-btn">Submit</button>
             </div>
         </div>

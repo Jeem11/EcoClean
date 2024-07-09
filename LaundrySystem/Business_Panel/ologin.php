@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($db_status === 'Unpaid') {
                     // Redirect to Subscription.php
-                    header("Location: subscription.php");
+                    header("Location: Subscription.php");
                     exit();
                 } else {
                     header("Location: ologin.php"); // Redirect to employee interface (change to your actual employee interface page)

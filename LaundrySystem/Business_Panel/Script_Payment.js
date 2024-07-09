@@ -21,67 +21,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
         if (validateFileType(file, validImageTypes)) {
             // Valid file type
-            pay_pic.classList.remove('invalid-input');
+            pay_pic.classList.remove('invalid');
         } else {
             // Invalid file type
-            pay_pic.classList.add('invalid-input');
-            alert('Invalid file type. Please select a JPEG, PNG, GIF, or PDF file.');
+            alert('Please upload a valid image (JPEG, PNG, GIF) or PDF file.');
+            pay_pic.classList.add('invalid');
+            pay_pic.value = ''; // Clear the input
+        }
+    });
+
+    p_form.addEventListener('submit', function(event) {
+        const file = pay_pic.files[0];
+        const maxSizeMB = 2; // 2 MB
+        if (file && !validateFileSize(file, maxSizeMB)) {
+            alert('File size exceeds 2 MB. Please upload a smaller file.');
+            event.preventDefault();
         }
     });
 
     back.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.location.href = 'Subscription.php';
-    });
-
-    sub.addEventListener('click', function(event) {
-        event.preventDefault();
-        let valid = false;
-        if (!pay_pic.files || pay_pic.files.length === 0) {
-            pay_pic.classList.add('invalid-input');
-            alert('Please upload proof of payment.');
-        } else {
-            const file = pay_pic.files[0];
-            if (!validateFileSize(file, 5)) {
-                pay_pic.classList.add('invalid-input');
-                alert('Please upload an image file that is less than 5MB.');
-            } else if (!validateFileType(file, ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'])) {
-                pay_pic.classList.add('invalid-input');
-                alert('Please upload an image file of type: JPEG, PNG, GIF, or PDF.');
-            } else {
-                pay_pic.classList.remove('invalid-input');
-                valid = true;
-            }
-        }
-
-        if (valid) {
-            const payData = new FormData(p_form); // Use the form element to construct FormData
-
-            $.ajax({
-                type: 'POST',
-                url: 'payment_process.php',
-                data: payData,
-                dataType: 'json',
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    console.log('AJAX success. Response:', response);
-                    if (response.status === 'success') {
-                        alert(response.message);
-                        p_form.reset();
-                        window.location.href = 'ologin.php';
-                        const payID = response.PayID;
-                        console.log('PayID:', payID);
-                    } else {
-                        alert(response.message);
-                        console.error('Server returned error status:', response.status);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('AJAX error. Status:', textStatus, 'Error:', errorThrown);
-                    alert('An error occurred while processing your request.');
-                }
-            });
-        }
+        window.history.back();
     });
 });
