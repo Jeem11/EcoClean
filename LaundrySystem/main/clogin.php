@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user_password === $db_password) {
             // User exists and password is correct, start session
             $_SESSION['username'] = $user_username;
-            header("Location: client.php"); // Redirect to client interface
+            header("Location: elanding.php"); // Redirect to employee interface
             exit();
         } else {
             // Incorrect password
