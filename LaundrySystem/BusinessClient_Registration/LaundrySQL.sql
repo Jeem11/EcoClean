@@ -376,6 +376,7 @@ CREATE TABLE IF NOT EXISTS pending_payment (
     bs_ID INT NOT NULL,
     sub_ID CHAR(5),
     total_pay INT NOT NULL,
+    last_pay DATE NOT NULL,
     due_pay DATE NOT NULL
 );
 

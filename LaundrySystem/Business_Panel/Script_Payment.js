@@ -18,11 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     pay_pic.addEventListener('change', function() {
         const file = this.files[0];
-        const validImageTypes = ['image/jpeg', 'image/png'];
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
         if (validateFileType(file, validImageTypes)) {
-            alert('VALID.');
+            // Valid file type
+            pay_pic.classList.remove('invalid-input');
         } else {
-            alert('Invalid file type. Please select a JPEG or PNG image.');
+            // Invalid file type
+            pay_pic.classList.add('invalid-input');
+            alert('Invalid file type. Please select a JPEG, PNG, GIF, or PDF file.');
         }
     });
 
@@ -36,14 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let valid = false;
         if (!pay_pic.files || pay_pic.files.length === 0) {
             pay_pic.classList.add('invalid-input');
+            alert('Please upload proof of payment.');
         } else {
             const file = pay_pic.files[0];
             if (!validateFileSize(file, 5)) {
                 pay_pic.classList.add('invalid-input');
-                alert('Please enter a valid image file that is less than 5MB.');
+                alert('Please upload an image file that is less than 5MB.');
             } else if (!validateFileType(file, ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'])) {
                 pay_pic.classList.add('invalid-input');
-                alert('Please upload an image file of type: JPEG, PNG, GIF.');
+                alert('Please upload an image file of type: JPEG, PNG, GIF, or PDF.');
             } else {
                 pay_pic.classList.remove('invalid-input');
                 valid = true;
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (valid) {
-            const payData = new FormData(p_form);
+            const payData = new FormData(p_form); // Use the form element to construct FormData
 
             $.ajax({
                 type: 'POST',
@@ -65,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (response.status === 'success') {
                         alert(response.message);
                         p_form.reset();
-                        window.location.href = 'Subscription.php';
+                        window.location.href = 'ologin.php';
                         const payID = response.PayID;
                         console.log('PayID:', payID);
                     } else {
@@ -78,10 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('An error occurred while processing your request.');
                 }
             });
-        } else if (!valid) {
-            alert('Please upload proof of payment');
-        } else {
-            p_form.reset();
         }
     });
 });

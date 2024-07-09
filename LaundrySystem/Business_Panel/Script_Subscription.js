@@ -7,7 +7,7 @@ document.querySelectorAll('.subscribe-button').forEach(button => {
             .then(response => {
                 if (response.ok) {
                     // Redirect to Payment.php with the selected plan
-                    window.location.href = `Payment.php?plan=${plan}`;
+                    window.location.href = `Payment.php?plan=${encodeURIComponent(plan)}`;
                 } else {
                     alert('Error generating QR code. Please try again.');
                 }

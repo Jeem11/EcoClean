@@ -1,6 +1,7 @@
 <?php
 include 'DBLaundryConnect.php';
 session_start();
+
 $login_error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Prepare and bind for laundry_account
-        $stmt = $conn->prepare("SELECT a.bs_ID, a.bs_username, a.bs_userpass, b.bs_status 
+        $stmt = $conn->prepare("SELECT a.bs_ID, a.bs_username, a.bs_userpass, b.bs_name, b.bs_status 
                                 FROM laundry_account a 
                                 JOIN laundry_shops b ON a.bs_ID = b.bs_ID 
                                 WHERE a.bs_username = ?");
@@ -29,21 +30,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute statement
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($bs_ID, $db_username, $db_password, $db_status);
+        $stmt->bind_result($bs_ID, $db_username, $db_password, $bs_name, $db_status);
 
         if ($stmt->num_rows > 0) {
             $stmt->fetch();
-            if ($user_password === $db_password) { // Direct string comparison
+            // Validate password using password_verify() if passwords are hashed
+            if ($user_password === $db_password) { // Direct string comparison (consider using password_verify() if passwords are hashed)
                 // User exists and password is correct, start session
                 session_regenerate_id(true); // Prevent session fixation
                 $_SESSION['username'] = $user_username;
+                $_SESSION['bs_ID'] = $bs_ID;
+                $_SESSION['bs_name'] = $bs_name;
 
                 if ($db_status === 'Unpaid') {
-                    header("Location: Subscription.php"); // Redirect to the unpaid page
+                    // Redirect to Subscription.php
+                    header("Location: subscription.php");
+                    exit();
                 } else {
-                    header("Location: elanding.php"); // Redirect to employee interface
+                    header("Location: ologin.php"); // Redirect to employee interface (change to your actual employee interface page)
+                    exit();
                 }
-                exit();
             } else {
                 // Incorrect password
                 $login_error = "Invalid username or password.";
@@ -107,9 +113,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if ($login_error) {
     // Display error message (or handle it in the frontend)
-    echo "<p></p>";
+    echo "<script>console.log('" . addslashes($login_error) . "');</script>";
 }
 ?>
+
 
 
 
