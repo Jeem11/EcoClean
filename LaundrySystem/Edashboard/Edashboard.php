@@ -33,7 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <a href="#" id="section_requests"><i class="fa fa-user"></i> Customer</a>
           </li>
           <li>
-            <a href="index.php"><i class="fa fa-power-off"></i> Quit</a>
+            <a href="logout.php"><i class="fa fa-power-off"></i> Quit</a>
           </li>
         </ul>
         <br /><br />
@@ -64,7 +64,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <div class="request-div">
     <div class="rq_business">
         <link rel="stylesheet" href="rqbusiness_style.css" type="text/css">
-        <button id='business'>Client Request</button>
         <button id='user'>Client Laundry Status</button>
         <div class="table_border">
             <table id="rqbusiness_container">
@@ -76,7 +75,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Table rows will be populated here by fetch_rqbusiness.php -->
+                    <tr>
+                        <td>Princess Agban</td>
+                        <td>Saint Anthony Subdivision Cainta Rizal</td>
+                        <td>Waiting</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Sones</td>
+                        <td>ADL building Cainta Rizal</td>
+                        <td>Folding</td>
+                    </tr>
+                    <tr>
+                        <td>Michael Labang</td>
+                        <td>Sitio Manggahan Antipolo City</td>
+                        <td>Under Wash</td>
+                    </tr>
+                    <tr>
+                        <td>Emily Batumbakal</td>
+                        <td>Valley Golf Cainta Rizal</td>
+                        <td>Drying</td>
+                    </tr>
+                    <tr>
+                        <td>Jan Alcazar</td>
+                        <td>Angono Rizal</td>
+                        <td>Ready-to-Pickup</td>
+                    </tr>
+                    <tr>
+                        <td>Patricia Collera</td>
+                        <td>Pineapple St. Taytay Rizal</td>
+                        <td>Under Wash</td>
+                    </tr>
+                    <tr>
+                        <td>Daniel Magtuba</td>
+                        <td>Red Cherry Valley View Cainta Rizal</td>
+                        <td>Ready-to-Pickup </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
