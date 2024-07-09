@@ -1,0 +1,83 @@
+.disabledButton {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+}
+
+#business {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#business:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#employee {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#employee:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#users {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#users:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#penpay_container, #penpay_container th, #penpay_container td {
+    border: none;
+}
+
+#penpay_container td:hover {
+    background-color: #7966be;
+    color: white;
+}
+
+.selected-row{
+    background-color: #6850be;
+    color: white;
+}
+
+.status-payselect {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none; 
+    background-color: transparent;
+    padding: 0; 
+    outline: none;
+}
+
+.status-payselect::-ms-expand {
+    display: none; 
+}
+
+.status-payselect option {
+    color:black;
+}
+
+.expanded {
+    background-color: #6850be; 
+    color: white;
+}
+
+.hiddenrow{
+    background-color: #5829c4; 
+    color: white;
+}

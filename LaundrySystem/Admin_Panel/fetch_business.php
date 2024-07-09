@@ -5,10 +5,10 @@ include 'DBLaundryConnect.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$query = "SELECT bs_ID, bs_name, bs_owner, CONCAT(bs_city, ', ', bs_brgy) AS address, bs_regdate, bs_status, bs_contact, bs_email, bsDTI_No, bsTIN_No 
-FROM laundry_shops 
-LEFT JOIN businessDTI_File ON bs_ID = bsDTI_ID 
-LEFT JOIN businessTIN_File ON bs_ID = bsTIN_ID
+$query = "SELECT a.bs_ID, bs_name, bs_owner, CONCAT(bs_city, ', ', bs_brgy) AS address, bs_regdate, bs_status, bs_contact, bs_email, bsDTI_No, bsTIN_No 
+FROM laundry_shops a
+LEFT JOIN businessDTI_File ON a.bs_ID = bsDTI_ID 
+LEFT JOIN businessTIN_File ON a.bs_ID = bsTIN_ID
 WHERE bs_status = 'Paid'";
 $result = $conn->query($query);
 

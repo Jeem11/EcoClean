@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var bb_businessbtn = document.getElementById('bb_business');
     var bb_userbtn = document.getElementById('bb_user');
 
+    var unpaid = document.getElementById('p_unpaid');
+    var paid = document.getElementById('p_paid');
+
     //Request Section
     var requestLink = document.getElementById('section_requests');
 
@@ -40,6 +43,10 @@ document.addEventListener("DOMContentLoaded", function(){
     //Payment Section
     var paymentLink = document.getElementById('section_payment');
 
+    //Pending Payments
+    var  PendingSec = document.querySelector('.penpay-div');
+    var pending = document.querySelector('.pendingpay');
+
 
 //Event Listeners
 //-------------------------------------------------------------------------------
@@ -61,6 +68,9 @@ document.addEventListener("DOMContentLoaded", function(){
         businessSec.style.display = 'none';
         business.style.display = 'none';
 
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
+
 
     })
 
@@ -76,6 +86,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -91,6 +104,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -108,6 +124,9 @@ document.addEventListener("DOMContentLoaded", function(){
         businessSec.style.display = 'none';
         business.style.display = 'none';
 
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
+
 
     })
 
@@ -123,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -138,6 +160,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -155,6 +180,9 @@ document.addEventListener("DOMContentLoaded", function(){
         businessSec.style.display = 'none';
         business.style.display = 'none';
 
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
+
 
     })
 
@@ -170,6 +198,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -185,6 +216,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -205,6 +239,9 @@ bb_businessbtn.addEventListener("click", function(){
     businessSec.style.display = 'block';
     business.style.display = 'block';
 
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+
 
 })
 
@@ -220,6 +257,47 @@ bb_userbtn.addEventListener("click", function(){
 
     businessSec.style.display = 'none';
     business.style.display = 'none';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+                                                                        
+})
+
+//Payment Button
+unpaid.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+
+    PendingSec.style.display = 'block';
+    pending.style.display = 'block';
+
+
+})
+
+paid.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
                                                                         
 })
 
@@ -239,6 +317,9 @@ bb_userbtn.addEventListener("click", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
 
 
 
@@ -263,6 +344,9 @@ bb_userbtn.addEventListener("click", function(){
 
         businessSec.style.display = 'block';
         business.style.display = 'block';
+
+        PendingSec.style.display = 'none';
+        pending.style.display = 'none';
                                                                             
     })
 
@@ -282,6 +366,9 @@ bb_userbtn.addEventListener("click", function(){
 
         businessSec.style.display = 'none';
         business.style.display = 'none';
+
+        PendingSec.style.display = 'block';
+        pending.style.display = 'block';
                                                                             
 
     })
