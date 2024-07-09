@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS request_user (
     rq_date DATE NOT NULL,
     rq_username VARCHAR(225) NOT NULL,
     rq_userpass VARCHAR(225) NOT NULL,
-    rquser_status CHAR(15) DEFAULT 'Pending',
-    FOREIGN KEY (rquser_ID) REFERENCES request_userpic(rquserpic_ID) ON DELETE CASCADE
+    rquser_status CHAR(15) DEFAULT 'Pending'
 );
 
 -- Create User/Client Profile table
@@ -397,7 +396,12 @@ CREATE TABLE IF NOT EXISTS rejected_account(
     rq_userpass VARCHAR(225)
 );
 
-
+CREATE TABLE IF NOT EXISTS admin(
+    admin_ID INT AUTO_INCREMENT PRIMARY KEY,
+    admin_name VARCHAR(225),
+    admin_username VARCHAR(225),
+    admin_password VARCHAR(225)
+)
 
 
 

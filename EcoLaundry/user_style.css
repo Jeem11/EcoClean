@@ -1,0 +1,88 @@
+.disabledButton {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+}
+
+#business {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#business:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#employee {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#employee:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#users {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#users:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#user_container, #user_container th, #user_container td {
+    border: none;
+}
+
+#user_container td:hover {
+    background-color: #7966be;
+    color: white;
+}
+
+.selected-row{
+    background-color: #6850be;
+    color: white;
+}
+
+.status-empselect {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none; 
+    background-color: transparent;
+    padding: 0; 
+    outline: none;
+}
+
+.status-empselect::-ms-expand {
+    display: none; 
+}
+
+.status-empselect option {
+    color:black;
+}
+
+.expanded {
+    background-color: #6850be; 
+    color: white;
+}
+
+.hiddenrow{
+    background-color: #5829c4; 
+    color: white;
+}
+
+.hidden-row td button {
+    display: inline-block;
+    margin-right: 80px; 
+}

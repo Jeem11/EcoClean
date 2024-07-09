@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <a href="#" id="section_payment"><i class="fa fa-bullhorn"></i> Payments</a>
           </li>
           <li>
-            <a href="index.php"><i class="fa fa-power-off"></i> Quit</a>
+            <a href="maininterface.php"><i class="fa fa-power-off"></i> Quit</a>
           </li>
         </ul>
         <br /><br />

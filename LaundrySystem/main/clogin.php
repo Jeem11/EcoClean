@@ -1,17 +1,10 @@
 <?php
+include 'DBLaundryConnect.php';
 session_start();
 $login_error = '';
 
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "ccis";
-    $dbname = "dba_laundry";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -21,29 +14,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
 
-    // Prepare and bind
+    // Prepare and bind for user_info table
     $stmt = $conn->prepare("SELECT user_ID, user_username, user_userpass FROM user_info WHERE user_username = ?");
     $stmt->bind_param("s", $user_username);
 
     // Execute statement
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($user_ID, $db_username, $db_password);
-    
+
     if ($stmt->num_rows > 0) {
+        $stmt->bind_result($user_ID, $db_username, $db_password);
         $stmt->fetch();
-        if (password_verify($user_password, $db_password)) {
+
+        // Verify password
+        if ($user_password === $db_password) {
             // User exists and password is correct, start session
             $_SESSION['username'] = $user_username;
-            header("Location: elanding.php"); // Redirect to employee interface
+            header("Location: client.php"); // Redirect to client interface
             exit();
         } else {
             // Incorrect password
             $login_error = "Invalid username or password.";
         }
     } else {
-        // User does not exist
-        $login_error = "Invalid username or password.";
+        // Check if user exists in request_user table
+        $stmt = $conn->prepare("SELECT rquser_username, rquser_userpass FROM request_user WHERE rquser_username = ?");
+        $stmt->bind_param("s", $user_username);
+
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($rquser_username, $rquser_userpass);
+            $stmt->fetch();
+
+            // User exists in request_user, account under review
+            $login_error = "Your account is still under review.";
+        } else {
+            // Check if user exists in rejected_account table
+            $stmt = $conn->prepare("SELECT rq_username, rq_userpass FROM rejected_account WHERE rq_username = ?");
+            $stmt->bind_param("s", $user_username);
+
+            $stmt->execute();
+            $stmt->store_result();
+
+            if ($stmt->num_rows > 0) {
+                $stmt->bind_result($rq_username, $rq_userpass);
+                $stmt->fetch();
+
+                // User exists in rejected_account, account rejected
+                $login_error = "Your request for an account has been rejected.";
+            } else {
+                // User doesn't exist in any table
+                $login_error = "User doesn't exist.";
+            }
+        }
     }
 
     // Close connections

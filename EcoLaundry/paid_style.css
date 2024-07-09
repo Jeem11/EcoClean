@@ -1,0 +1,57 @@
+.disabledButton {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+}
+
+#business {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#business:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#employee {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#employee:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#users {
+    height: 30px;
+    width: 130px;
+    border: 1px solid #5d3fcc;
+    cursor: pointer;
+}
+
+#users:hover {
+    background-color: #5d3fcc;
+    color:white;
+}
+
+#paid_container, #paid_container th, #paid_container td {
+    border: none;
+}
+
+#paid_container td:hover {
+    background-color: #7966be;
+    color: white;
+}
+
+.selected-row{
+    background-color: #6850be;
+    color: white;
+}
+
+
