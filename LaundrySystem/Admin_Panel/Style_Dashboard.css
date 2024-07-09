@@ -131,6 +131,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   }
 }
 
+/**Registered Business*/
+.business-div{
+  position: relative;
+    z-index: 1;
+    width: 76%;
+    float: left;
+    min-height: 50vh; 
+    background: var(--white);
+    margin: 25px;
+    border-radius: 25px;
+    padding: 30px;
+    display: none;
+ }
+
+ @media (max-width: 768px) {
+  .business-div {
+    width: 100%; 
+    margin: 0; 
+    border-radius: 0;
+  }
+}
 
 
 

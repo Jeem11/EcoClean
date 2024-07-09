@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($newValue === 'Approved') {
             // Insert into user_info
             $user = $conn->prepare("INSERT INTO user_info(user_ID, user_name, user_contact, user_email, user_add, user_city, user_brgy, rg_date, user_username, user_userpass)
-            SELECT rquser_ID, rquser_name, rquser_contact, rquser_email, rquser_add, rquser_city, rquser_brgy, rq_date, rq_username, rq_userpass 
+            SELECT rquser_ID, rquser_name, rquser_contact, rquser_email, rquser_add, rquser_city, rquser_brgy, NOW(), rq_username, rq_userpass 
             FROM request_user 
             WHERE rquser_ID = ?");
             $user->bind_param('i', $rowId);

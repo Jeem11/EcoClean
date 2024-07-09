@@ -161,7 +161,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
 <!-- Registered Business -->
 
-
+<div class="business-div">
+    <div class="business">
+        <link rel="stylesheet" href="business_style.css" type="text/css">
+        <button id='bb_business'>Business</button>
+        <button id='bb_user'>User/Client</button>
+        <div class="table_border">
+            <table id="business_container">
+                <thead>
+                    <tr>
+                    <th>Laundry Shop Name</th>
+                        <th>Owner</th>
+                        <th>Address</th>
+                        <th>Registered Date</th>
+                        <th>End of Subscription</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_business.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_ABusiness.js"></script> 
+</div>
 
 
 

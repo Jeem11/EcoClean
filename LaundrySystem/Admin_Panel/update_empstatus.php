@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newStat = 'Approved';
 
             $update = $conn->prepare("INSERT INTO employee (emp_ID, emp_name, emp_bday, emp_contact, emp_email, emp_add, emp_city, emp_brgy, work_shop, rg_date, emp_username, emp_userpass, emp_status)
-            SELECT rqemp_ID, rqemp_name, rqemp_bday, rqemp_contact, rqemp_email, rqemp_add, rqemp_city, rqemp_brgy, rq_shop, rq_date, rqemp_username, rqemp_userpass, ? 
+            SELECT rqemp_ID, rqemp_name, rqemp_bday, rqemp_contact, rqemp_email, rqemp_add, rqemp_city, rqemp_brgy, rq_shop, NOW(), rqemp_username, rqemp_userpass, ? 
             FROM request_employee
             WHERE rqemp_ID = ?");
             $update->bind_param('si', $newStat, $rowId);

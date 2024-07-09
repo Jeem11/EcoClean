@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newStat = 'Unpaid';
 
             $update = $conn->prepare("INSERT INTO laundry_shops (bs_ID, bs_name, bs_owner, bs_add, bs_city, bs_brgy, bs_contact, bs_email, bs_regdate, bs_status)
-            SELECT rqbs_ID, rqbs_name, rqbs_owner, rqbs_add, rqbs_city, rqbs_brgy, rqbs_contact, rqbs_email, rqbs_regdate, ? 
+            SELECT rqbs_ID, rqbs_name, rqbs_owner, rqbs_add, rqbs_city, rqbs_brgy, rqbs_contact, rqbs_email, NOW(), ? 
             FROM request_business
             WHERE rqbs_ID = ?");
             $update->bind_param('si', $newStat, $rowId);

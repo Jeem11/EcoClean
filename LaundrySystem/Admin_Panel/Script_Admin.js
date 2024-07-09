@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var u_employeebtn = document.getElementById('u_employee');
     var u_userbtn = document.getElementById('u_user');
 
+    var bb_businessbtn = document.getElementById('bb_business');
+    var bb_userbtn = document.getElementById('bb_user');
+
     //Request Section
     var requestLink = document.getElementById('section_requests');
 
@@ -29,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Registered Section
     var registerLink = document.getElementById('section_registered');
+
+    ///Registered Business
+    var businessSec = document.querySelector('.business-div');
+    var business = document.querySelector('.business');
 
     //Payment Section
     var paymentLink = document.getElementById('section_payment');
@@ -51,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function(){
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
 
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
+
 
     })
 
@@ -63,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
 
@@ -75,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'block';
         requestuser.style.display = 'block';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
 
@@ -89,6 +105,9 @@ document.addEventListener("DOMContentLoaded", function(){
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
 
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
+
 
     })
 
@@ -101,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
 
@@ -113,6 +135,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'block';
         requestuser.style.display = 'block';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
 
@@ -127,6 +152,9 @@ document.addEventListener("DOMContentLoaded", function(){
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
 
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
+
 
     })
 
@@ -139,6 +167,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
 
@@ -151,8 +182,46 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'block';
         requestuser.style.display = 'block';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
     })
+
+
+//Registered Button
+
+//Business Button
+bb_businessbtn.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'block';
+    business.style.display = 'block';
+
+
+})
+
+bb_userbtn.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+                                                                        
+})
 
 
 //Dashboard Links
@@ -167,6 +236,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
 
 
 
@@ -188,6 +260,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'block';
+        business.style.display = 'block';
                                                                             
     })
 
@@ -204,6 +279,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         requestUserSec.style.display = 'none';
         requestuser.style.display = 'none';
+
+        businessSec.style.display = 'none';
+        business.style.display = 'none';
                                                                             
 
     })
