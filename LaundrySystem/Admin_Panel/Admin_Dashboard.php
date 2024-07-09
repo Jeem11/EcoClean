@@ -46,7 +46,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           </li>
         </ul>
         <br /><br />
-        <img src="Laundry-Logo.png" class="support">
+        <img src="logo.png" class="support">
       </div>
       <div class="right-div">
         <div id="main">
@@ -189,6 +189,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 </div>
 
 
+
+
+<!-- Payment Section -->
+
+<!--Pending Payments-->
+<div class="penpay-div">
+    <div class="pendingpay">
+        <link rel="stylesheet" href="penpay_style.css" type="text/css">
+        <button id='p_unpaid'>Unpaid</button>
+        <button id='p_paid'>Paid</button>
+        <div class="table_border">
+            <table id="penpay_container">
+                <thead>
+                    <tr>
+                    <th>Laundry Shop Name</th>
+                        <th>Owner</th>
+                        <th>Address</th>
+                        <th>Registered Date</th>
+                        <th>Subscription</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_penpay.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_Penpay.js"></script> 
+</div>
 
 
 
