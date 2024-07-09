@@ -1,3 +1,6 @@
+<?php
+include 'headers.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,33 +50,14 @@
             </div>
         </section>
         <section class="laundry-shops" id="laundry-shops">
-    <h2>Our Laundry Shops</h2>
-    <ul class="shop-list">
-        <li>
-            <h3>Sparkle Clean Laundry Services</h3>
-            <div class="shop-images">
-                <img src="shop1-1.png" alt="Shop 1 Image 1">
-                <img src="shop1-2.jpg" alt="Shop 1 Image 2">
-            </div>
-        </li>
-        <li>
-            <h3>Bright Tide Laundry Solutions</h3>
-            <div class="shop-images">
-                <img src="shop2-1.jpg" alt="Shop 2 Image 1">
-                <img src="shop2-2.jpg" alt="Shop 2 Image 2">
-            </div>
-        </li>
-        <li>
-            <h3>Sunny Day Laundry Lounge</h3>
-            <div class="shop-images">
-                <img src="shop3-1.jpg" alt="Shop 3 Image 1">
-                <img src="shop3-2.jpg" alt="Shop 3 Image 2">
-            </div>
-        </li>
-        <!-- Add more shops with images as needed -->
-    </ul>
-</section>
-
+            <h2>Our Laundry Shops</h2>
+            <ul>
+                <li>Sparkle Clean Laundry Services</li>
+                <li>Bright Tide Laundry Solutions</li>
+                <li>Sunny Day Laundry Lounge</li>
+                <!-- Add more laundry shops as needed -->
+            </ul>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 EcoClean Laundry. All rights reserved.</p>
