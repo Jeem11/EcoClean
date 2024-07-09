@@ -1,0 +1,161 @@
+/* General styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation bar styles */
+.nav {
+    width: 100%;
+    background: #0a66b1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px; /* Adjusted padding */
+    box-sizing: border-box;
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Align to the left edge */
+    z-index: 1000; /* Ensure it's above other content */
+    height: 70px; /* Set the height of the nav bar */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo p {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0;
+}
+
+.main-nav {
+    display: flex;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav ul li {
+    margin: 0 10px;
+}
+
+.main-nav ul li a {
+    color: white;
+    font-size: 18px;
+}
+
+/* Menu icon for smaller screens */
+#menu {
+    display: none;
+}
+
+#menu-icon {
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .main-nav {
+        position: absolute;
+        top: 70px; /* Adjusted to match the height of the nav bar */
+        right: 0;
+        background: #0a66b1;
+        height: 100vh;
+        width: 50%;
+        display: block;
+        text-align: center;
+        transition: all 0.5s ease;
+        transform: translateX(100%);
+    }
+
+    .main-nav ul {
+        display: block;
+    }
+
+    .main-nav ul li {
+        margin: 20px 0;
+    }
+
+    #menu:checked ~ .main-nav {
+        transform: translateX(0%);
+    }
+
+    #menu-icon {
+        display: block;
+    }
+}
+
+/* Dropdown styles */
+.right-links {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#dropdownButton {
+    background-color: lightblue;
+    color: #0077b6;
+    padding: 12px 18px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#dropdownButton:hover {
+    background-color: #0096c7;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0077b6;
+    min-width: 190px;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: -90px;
+    font-style: italic;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #0056b3;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
