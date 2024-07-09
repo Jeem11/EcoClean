@@ -187,6 +187,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <script src="Script_ABusiness.js"></script> 
 </div>
 
+<!-- Users -->
+<div class="user-div">
+    <div class="users">
+        <link rel="stylesheet" href="user_style.css" type="text/css">
+        <button id='uu_business'>Business</button>
+        <button id='uu_user'>User/Client</button>
+        <div class="table_border">
+            <table id="user_container">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Email Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <!-- Table rows will be populated here by fetch_business.php -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Script_Auser.js"></script> 
+</div>
+
 
 
 

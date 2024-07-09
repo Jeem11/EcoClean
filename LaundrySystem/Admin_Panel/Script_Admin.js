@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var bb_businessbtn = document.getElementById('bb_business');
     var bb_userbtn = document.getElementById('bb_user');
 
+    var UserBbtn = document.getElementById('uu_business');
+    var userUbtn = document.getElementById('uu_user');
+
     var unpaid = document.getElementById('up_unpaid');
     var paid = document.getElementById('up_paid');
 
@@ -42,6 +45,10 @@ document.addEventListener("DOMContentLoaded", function(){
     ///Registered Business
     var businessSec = document.querySelector('.business-div');
     var business = document.querySelector('.business');
+
+    //Registered Users
+    var UserSec = document.querySelector('.user-div');
+    var user = document.querySelector('.users');
 
     //Payment Section
     var paymentLink = document.getElementById('section_payment');
@@ -81,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function(){
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
 
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
+
 
     })
 
@@ -102,6 +112,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -123,6 +136,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -146,6 +162,9 @@ document.addEventListener("DOMContentLoaded", function(){
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
 
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
+
 
     })
 
@@ -167,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -188,6 +210,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -211,6 +236,9 @@ document.addEventListener("DOMContentLoaded", function(){
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
 
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
+
 
     })
 
@@ -232,6 +260,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -253,6 +284,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -279,6 +313,9 @@ bb_businessbtn.addEventListener("click", function(){
     paidSec.style.display = 'none';
     apaid.style.display = 'none';
 
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
+
 
 })
 
@@ -300,8 +337,64 @@ bb_userbtn.addEventListener("click", function(){
 
     paidSec.style.display = 'none';
     apaid.style.display = 'none';
+
+    UserSec.style.display = 'block';
+    user.style.display = 'block';
                                                                         
 })
+
+//User Button
+UserBbtn.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'block';
+    business.style.display = 'block';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
+
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
+
+
+})
+
+userUbtn.addEventListener("click", function(){
+    requestDivSec.style.display = 'none';
+    requestDiv.style.display = 'none';
+
+    requestEmpSec.style.display = 'none';
+    requestEmp.style.display = 'none';
+
+    requestUserSec.style.display = 'none';
+    requestuser.style.display = 'none';
+
+    businessSec.style.display = 'none';
+    business.style.display = 'none';
+
+    PendingSec.style.display = 'none';
+    pending.style.display = 'none';
+
+    paidSec.style.display = 'none';
+    apaid.style.display = 'none';
+
+    UserSec.style.display = 'block';
+    user.style.display = 'block';
+                                                                        
+})
+
+
+
 
 //Payment Button
 unpaid.addEventListener("click", function(){
@@ -322,6 +415,9 @@ unpaid.addEventListener("click", function(){
 
     paidSec.style.display = 'none';
     apaid.style.display = 'none';
+
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
 
 
 })
@@ -345,6 +441,9 @@ paid.addEventListener("click", function(){
     paidSec.style.display = 'block';
     apaid.style.display = 'block';
 
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
+
 
 })
 
@@ -366,6 +465,9 @@ notpaid.addEventListener("click", function(){
 
     paidSec.style.display = 'none';
     apaid.style.display = 'none';
+
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
                                                                         
 })
 
@@ -387,6 +489,9 @@ ypaid.addEventListener("click", function(){
 
     paidSec.style.display = 'none';
     apaid.style.display = 'none';
+
+    UserSec.style.display = 'none';
+    user.style.display = 'none';
                                                                         
 })
 
@@ -413,7 +518,8 @@ ypaid.addEventListener("click", function(){
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
 
-
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
 
     })
 
@@ -442,6 +548,9 @@ ypaid.addEventListener("click", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
     })
 
@@ -467,6 +576,9 @@ ypaid.addEventListener("click", function(){
 
         paidSec.style.display = 'none';
         apaid.style.display = 'none';
+
+        UserSec.style.display = 'none';
+        user.style.display = 'none';
                                                                             
 
     })

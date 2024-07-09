@@ -197,55 +197,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .req-div {
-    position: relative;
-    z-index: 3; /* Set an even higher z-index value than coach-form */
+/**Registered Users*/
+.user-div{
+  position: relative;
+    z-index: 1;
     width: 76%;
     float: left;
     min-height: 50vh; 
@@ -254,183 +209,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     border-radius: 25px;
     padding: 30px;
     display: none;
+ }
+
+ @media (max-width: 768px) {
+  .user-div {
+    width: 100%; 
+    margin: 0; 
+    border-radius: 0;
   }
-  
-  @media (max-width: 768px) {
-    .req-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .registerForm{
-    position: relative;
-    z-index: 4; /* Set a higher z-index value than coach-div */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .registerForm {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .attend_div{
-    position: relative;
-    z-index: 5; /* Set an even higher z-index value than coach-form */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .attend_div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .pay-div{
-    position: relative;
-    z-index: 6; /* Set an even higher z-index value than coach-form */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .pay-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .class-div{
-    position: relative;
-    z-index: 7; /* Set a higher z-index value than coach-div */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .class-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .member-div{
-    position: relative;
-    z-index: 8; /* Set a higher z-index value than coach-div */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .member-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .appoint_div{
-    position: relative;
-    z-index: 9; /* Set an even higher z-index value than coach-form */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .appoint_div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .paid-div{
-    position: relative;
-    z-index: 10; /* Set an even higher z-index value than coach-form */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .paid-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
-  
-  .rescoach-div{
-    position: relative;
-    z-index: 11; /* Set an even higher z-index value than coach-form */
-    width: 76%;
-    float: left;
-    min-height: 50vh; 
-    background: var(--white);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 30px;
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .rescoach-div {
-      width: 100%; 
-      margin: 0; 
-      border-radius: 0;
-    }
-  }
+}
+
+
+
+
+
   
   
   

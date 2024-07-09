@@ -4,7 +4,7 @@ include 'DBLaundryConnect.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$query = "SELECT a.bs_ID, a.bs_name, a.bs_owner, CONCAT(a.bs_brgy, a.bs_city) AS address, b.pay_date, c.sub_cdname, a.bs_status 
+$query = "SELECT a.bs_ID, a.bs_name, a.bs_owner, CONCAT(a.bs_brgy, ', ', a.bs_city) AS address, b.pay_date, c.sub_cdname, a.bs_status 
 FROM laundry_shops a JOIN payment b
 ON a.bs_ID = b.bs_ID
 JOIN subscription c 
